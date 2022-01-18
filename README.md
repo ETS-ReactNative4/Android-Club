@@ -1,2 +1,2 @@
 # Android-Club
-Assignment Repositories for Android Club
+Assignment Repository for Android Club
