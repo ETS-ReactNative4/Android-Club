@@ -5,7 +5,6 @@
 - Spacing isn't great when rotated.
 - Background Image moves with Keyboard; Should be static.
 - "Forgot Password" is not a Link/Button, just a Text Component.
-- Status Bar seems taller than normal
 
 #### Screenshots
 <img src="https://user-images.githubusercontent.com/95037274/150112484-4fcc9ce2-86e3-45b6-ba84-b7e3fece1bca.png" alt="Screenshot Portrait"
