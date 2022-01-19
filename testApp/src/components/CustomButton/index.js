@@ -4,7 +4,7 @@ import { StyleSheet,  TouchableOpacity, Text } from 'react-native';
 export default function CustomButton({ PropStylesButton, PropStylesText, text, PropFunction }) {
     return (
         <>
-        <TouchableOpacity style={[styles.container, PropStylesButton]} activeOpacity={0.75} onPress={PropFunction}>
+        <TouchableOpacity style={[styles.container, PropStylesButton]} activeOpacity={0.9} onPress={PropFunction}>
             <Text style={[styles.text, PropStylesText]}>{text}</Text>
         </TouchableOpacity>
         </>
