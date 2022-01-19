@@ -8,7 +8,9 @@
 - Status Bar seems taller than normal
 
 #### Screenshots
-<img src="https://user-images.githubusercontent.com/95037274/149897058-005bbd74-8ac2-4502-9ca5-f6ef2504645c.png" alt="Screenshot 1"
-title="Login Page" height="600" />
-<img src="https://user-images.githubusercontent.com/95037274/149897414-2e2dcf5c-bde7-4ae8-b83c-19253ae16093.png" alt="Screenshot 2"
-title="Login Page" height="600" />
+<img src="https://user-images.githubusercontent.com/95037274/150112484-4fcc9ce2-86e3-45b6-ba84-b7e3fece1bca.png" alt="Screenshot Portrait"
+title="Login Page Portrait" height="600" /> \
+<img src="https://user-images.githubusercontent.com/95037274/150112506-271143ac-266f-4a88-ae06-3d658736be16.png" alt="Screenshot Landscape"
+title="Login Page Landscape" height="300" /> \
+<img src="https://user-images.githubusercontent.com/95037274/150112512-aef99ff2-4f5f-412d-92eb-6855098cab9f.png" alt="Screenshot Landscape 2"
+title="Login Page Landscape" height="300" />
