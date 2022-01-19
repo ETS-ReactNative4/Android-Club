@@ -13,8 +13,8 @@ export default function LoginScreen() {
                     <MyTextInput PropStyles={styles.inputPassword} placeholderTextColor='#707070' secureTextEntry={true} placeholder='Password' autoComplete='password' />
                     <Text style={styles.forgotPassword}>Forgot Password</Text>
                     <View style={styles.boxTwo}>
-                        <CustomButton text='Sign In' PropStylesButton={styles.signIn} PropStylesText={styles.signInText} />
-                        <CustomButton text='Sign Up' PropStylesButton={styles.signUp} PropStylesText={styles.signUpText} />
+                        <CustomButton text='Sign In' PropStylesButton={styles.signInButton} PropStylesText={styles.signInText} PropFunction={() => console.log("Sign In")} />
+                        <CustomButton text='Sign Up' PropStylesButton={styles.signUpButton} PropStylesText={styles.signUpText} PropFunction={() => console.log("Sign Up")} />
                     </View>
                     <Image source={require('../../../assets/ACLogoHF.png')} style={styles.logoAC} />
                 </View>
@@ -34,8 +34,11 @@ const styles = StyleSheet.create({
     boxOne: {
         top: 70,
         flex: 1,
-        width: 250,
-        // backgroundColor: 'white',
+        width: 300,
+        paddingHorizontal: 50,
+        //backgroundColor: 'white',
+        //borderRadius: 20,
+        alignItems: 'center',
     },
 
     logoSR: {
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
 
-    signIn: {
+    signInButton: {
         backgroundColor: '#c81f22',
         width: 115,
     },
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
     },
 
-    signUp: {
+    signUpButton: {
         backgroundColor: '#303030',
         width: 115,
     },
