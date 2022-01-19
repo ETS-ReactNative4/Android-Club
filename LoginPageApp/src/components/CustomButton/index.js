@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet,  TouchableOpacity, Text } from 'react-native';
 
-export default function CustomButton({ PropStylesButton, PropStylesText, text, PropFunction }) {
+export default function CustomButton({ PropStylesButton, PropStylesText, PropText, PropFunction }) {
     return (
         <>
         <TouchableOpacity style={[styles.container, PropStylesButton]} activeOpacity={0.9} onPress={PropFunction}>
-            <Text style={[styles.text, PropStylesText]}>{text}</Text>
+            <Text style={[styles.text, PropStylesText]}>{PropText}</Text>
         </TouchableOpacity>
         </>
     )
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         width: 200,
         margin: 0,
         borderRadius: 25,
+        elevation: 5,
     },
 
     text: {

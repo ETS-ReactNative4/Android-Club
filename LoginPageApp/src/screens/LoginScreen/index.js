@@ -18,8 +18,8 @@ export default function LoginScreen() {
                                 <Text style={styles.forgotPassword}>Forgot Password</Text>
                             </View>
                             <View style={styles.buttonRow}>
-                                <CustomButton text='Sign In' PropStylesButton={styles.signInButton} PropStylesText={styles.signInText} PropFunction={() => console.log("Sign In")} />
-                                <CustomButton text='Sign Up' PropStylesButton={styles.signUpButton} PropStylesText={styles.signUpText} PropFunction={() => console.log("Sign Up")} />
+                                <CustomButton PropText='Sign In' PropStylesButton={styles.signInButton} PropStylesText={styles.signInText} PropFunction={() => console.log("Sign In")} />
+                                <CustomButton PropText='Sign Up' PropStylesButton={styles.signUpButton} PropStylesText={styles.signUpText} PropFunction={() => console.log("Sign Up")} />
                             </View>
                         </View>
                         <Image source={require('../../../assets/ACLogoHF.png')} style={styles.logoAC} />
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#ffffff',
         textDecorationLine: 'underline',
-        elevation: 5,
     },
 
     buttonRow: {
@@ -104,17 +103,16 @@ const styles = StyleSheet.create({
     signInButton: {
         backgroundColor: '#c81f22',
         width: 120,
-        elevation: 5,
     },
 
     signInText: {
         color: '#ffffff',
+        elevation: 5,
     },
 
     signUpButton: {
         backgroundColor: '#303030',
         width: 120,
-        elevation: 10,
     },
 
     signUpText: {
