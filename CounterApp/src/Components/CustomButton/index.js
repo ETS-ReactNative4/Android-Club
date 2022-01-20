@@ -13,18 +13,19 @@ export default function CustomButton({ PropStylesButton, PropStylesText, PropTex
 
 const styles = StyleSheet.create({
     container: {
-        height: 80,
-        width: 80,
-        margin: 0,
-        borderRadius: 40,
-        elevation: 5,
-        justifyContent: 'center', 
-        alignItems: 'center' 
-        
+        // height: 90,
+        // width: 160,
+        // margin: 0,
+        // borderRadius: 35,
+        elevation: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+
     },
 
     text: {
-        fontSize: 40,
+        fontSize: 50,
     }
 
 });
