@@ -8,7 +8,7 @@ export default function CounterScreen() {
     const windowHeight = useWindowDimensions().height;
     let fontColor = '#ebebeb';
     if (count < 0) {
-        fontColor = '#404040';
+        fontColor = '#282828';
     }
 
     return (
@@ -42,7 +42,7 @@ export default function CounterScreen() {
 }
 
 let cornerRadius = 35;
-let windowColorTransparent = 'rgba(255,255,255,0.4)';
+let windowColorTransparent = 'rgba(40,40,40,0.4)';
 let fontColor = '#ebebeb';
 let buttonColor = '#202020';
 let font = 'Roboto-Regular';

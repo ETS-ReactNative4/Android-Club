@@ -27,7 +27,7 @@ title="Login Page Landscape" height="200" />
 - Font refuses to change.
 
 #### Screenshots
-<img src="https://user-images.githubusercontent.com/95037274/150576431-6dafb512-db77-40fb-8454-b88751e7119d.png" alt="Screenshot Portrait"
+<img src="https://user-images.githubusercontent.com/95037274/150578307-7b37a939-a9e3-4f07-b05e-20dcbcbea6fa.png" alt="Screenshot Portrait"
 title="Counter Portrait" height="500" /> \
-<img src="https://user-images.githubusercontent.com/95037274/150576437-b626d207-b7c4-426c-99ab-307f16ba5625.png" alt="Screenshot Landscape"
+<img src="https://user-images.githubusercontent.com/95037274/150578320-fb2c7920-2b7e-48e3-b54c-cbf527169644.png" alt="Screenshot Landscape"
 title="Counter Landscape" height="200" />
