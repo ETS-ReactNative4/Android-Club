@@ -8,24 +8,26 @@
 
 #### Screenshots
 <img src="https://user-images.githubusercontent.com/95037274/150112484-4fcc9ce2-86e3-45b6-ba84-b7e3fece1bca.png" alt="Screenshot Portrait"
-title="Login Page Portrait" height="600" /> \
+title="Login Page Portrait" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/150112506-271143ac-266f-4a88-ae06-3d658736be16.png" alt="Screenshot Landscape"
-title="Login Page Landscape" height="300" /> \
+title="Login Page Landscape" height="200" /> \
 <img src="https://user-images.githubusercontent.com/95037274/150112512-aef99ff2-4f5f-412d-92eb-6855098cab9f.png" alt="Screenshot Landscape 2"
-title="Login Page Landscape" height="300" />
+title="Login Page Landscape" height="200" />
 
 ### Assignment 3 - Counter
 - All screen elements dynamically adjust sizing for different screens.
 - Used states to keep track of a variable's value. Increments/Decrements with buttons.
+- Conditional Statement changes colour of the counter based on variable's value. ( <0 = Grey, >=0 = White )
 - Inspiration: https://dribbble.com/shots/17313129-Cloud-Storage-Mobile-Apps-Design
 
 #### Issues
-- Can't really claim to be inspired by above link, assignment is only a "Number" with two buttons, from my understanding.
-- Border Radius won't change for different screens, no idea how to make it.
+- Not much inspiration from the above link.
+- Border Radius won't change for different screens, no idea how to make it do so.
 - Font sizes do not change based on screen size, yet.
+- Font refuses to change.
 
 #### Screenshots
-<img src="https://user-images.githubusercontent.com/95037274/150412505-ea9a9ab5-9eca-4159-99ec-7e08dbda1055.png" alt="Screenshot Portrait"
-title="Counter Portrait" height="600" /> \
-<img src="https://user-images.githubusercontent.com/95037274/150412514-ab9c8b4f-a3ea-4ef7-8b4d-c7aef487608d.png" alt="Screenshot Landscape"
-title="Counter Landscape" height="300" />
+<img src="https://user-images.githubusercontent.com/95037274/150576431-6dafb512-db77-40fb-8454-b88751e7119d.png" alt="Screenshot Portrait"
+title="Counter Portrait" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/150576437-b626d207-b7c4-426c-99ab-307f16ba5625.png" alt="Screenshot Landscape"
+title="Counter Landscape" height="200" />

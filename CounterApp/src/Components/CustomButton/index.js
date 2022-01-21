@@ -13,10 +13,6 @@ export default function CustomButton({ PropStylesButton, PropStylesText, PropTex
 
 const styles = StyleSheet.create({
     container: {
-        // height: 90,
-        // width: 160,
-        // margin: 0,
-        // borderRadius: 35,
         elevation: 10,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -25,7 +21,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 50,
+        fontSize: 100,
     }
 
 });
