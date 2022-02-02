@@ -9,6 +9,8 @@ export default function CounterScreen() {
     let fontColor = '#ebebeb';
     if (count < 0) {
         fontColor = '#282828';
+    } else {
+        fontColor = '#ebebeb';
     }
 
     return (
