@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function CustomButton({ PropStylesButton, PropStylesText, PropText, PropFunction }) {
+export default function ImageButton({ PropStylesButton, PropStylesImage, PropFunction, propImageLink }) {
     return (
         <>
             <TouchableOpacity style={[styles.container, PropStylesButton]} activeOpacity={0.9} onPress={PropFunction}>
-                <Text style={[styles.text, PropStylesText]}>{PropText}</Text>
+                <Image source={propImageLink} style={[styles.image, PropStylesImage]} />
             </TouchableOpacity>
         </>
     )
@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-
     },
 
-    text: {
-        fontSize: 50,
+    image: {
+        resizeMode: 'contain',
+        height: '100%',
+        width: '100%',
     }
 
 });

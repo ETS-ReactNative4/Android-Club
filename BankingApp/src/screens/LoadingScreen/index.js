@@ -1,85 +1,109 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image, ScrollView, ActivityIndicator } from 'react-native';
-import CustomButton from '../../components/CustomButton';
+import { StyleSheet, View, Image, ScrollView, ActivityIndicator, Text, useWindowDimensions } from 'react-native';
+import TextButton from '../../components/TextButton';
+import ImagePlus from '../../components/BackgroundImage';
 
 export default function Loading() {
     const [showLoad, setShowLoad] = useState(false);
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
     let displayButton = 'flex';
-    if(showLoad) {
+    let displayIndicator = 'none';
+    if (showLoad) {
         displayButton = 'none';
+        displayIndicator = 'flex';
     }
-    
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowLoad(false);
-        }, 3000);
+        }, 3500);
 
         return () => clearTimeout(timeout);
     }, [showLoad]);
 
     return (
         <>
-            <Image source={require('../../assets/Images/Gradient.png')} style={styles.loadingBG} />
-            <ScrollView style={styles.scrollable}>
-                <View style={styles.container}>
-                    <Image source={require('../../assets/Images/VIT2-White.png')} style={styles.VIT} />
-                    <CustomButton PropText='Enter' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true);}}></CustomButton>
-                    <ActivityIndicator size={50} color={'#ebebeb'} style={styles.load} animating={showLoad} />
+            <ImagePlus />
+            <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
+                <Image source={require('../../assets/Images/VIT2-White.png')} style={styles.VIT} />
+                <ActivityIndicator size={50} color={'white'} style={[styles.load, { display: displayIndicator }]} animating={showLoad} />
+                <View style={styles.textBox} >
+                    <Text style={[styles.textOne, { display: displayButton }]} >Easy Way{'\n'}To Go Insane</Text>
+                    <Text style={[styles.textTwo, { display: displayButton }]} >A New Way That Makes It Easier For You To Go Insane, From Home</Text>
                 </View>
-            </ScrollView>
+                <View style={styles.buttonBox} >
+                    <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true); }}></TextButton>
+                </View>
+
+            </View>
         </>
     )
 }
 
-let cornerRadius = 35;
-
 const styles = StyleSheet.create({
-
-    loadingBG: {
-        position: 'absolute',
-        resizeMode: 'cover',
-        height: '100%',
-        width: '100%',
-
-    },
 
     container: {
         flex: 1,
-        // justifyContent: 'center',
         alignItems: 'center',
 
     },
 
     VIT: {
-        // backgroundColor: 'black',
-        // paddingVertical: 250,
         marginTop: 150,
         marginBottom: 50,
         resizeMode: 'contain',
         height: 200,
         width: 200,
+
+    },
+
+    load: {
+        marginTop: 20,
+
+    },
+
+    textBox: {
+        marginVertical: 20,
+        padding: 10,
+        width: '90%',
+
+    },
+
+    textOne: {
+        fontSize: 40,
+        color: 'white',
+        fontWeight: 'bold',
+
+    },
+
+    textTwo: {
+        fontSize: 17,
+        color: '#cdcdcd',
+    },
+
+    buttonBox: {
+        flexDirection: 'row',
+        width: '90%',
+
     },
 
     launchButton: {
-        backgroundColor: '#ebebeb',
-        marginVertical: 20,
+        alignSelf: 'flex-start',
+        backgroundColor: 'white',
+        margin: 10,
         width: 200,
         height: 60,
-        borderRadius: cornerRadius,
+        borderRadius: 12.5,
+        elevation: 5,
 
     },
 
     LaunchText: {
         fontSize: 25,
         color: '#202020',
+        fontWeight: 'bold',
 
     },
-
-    load: {
-        marginVertical: 20,
-        // height: 60,
-        // backgroundColor: 'black',
-
-    }
 
 });
