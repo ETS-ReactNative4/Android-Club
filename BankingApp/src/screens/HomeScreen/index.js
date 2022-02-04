@@ -4,16 +4,17 @@ import ImageButton from '../../components/ImageButton';
 import ImageTextButton from '../../components/ImageTextButton';
 import ImagePlus from '../../components/BackgroundImage';
 import TextButton from '../../components/TextButton';
+import CardComponent from '../../components/CardBox';
 
 export default function Home() {
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
     const [showModal, setShowModal] = useState(false);
-    let userF = 'John';
-    let userL = 'Doe';
-    let cardBalance = 10000;
-    let accNumber = 'NI69420CE';
+    let firstName = 'John';
+    let lastName = 'Doe';
     let widthNeg = 20;
+    // let cardVendorLogo = "require('../../assets/Images/MasterCardIcon.png')";
+    // Figure out how to set variable to path and pass variables to props for custom component
 
     return (
         <>
@@ -26,7 +27,7 @@ export default function Home() {
                     <View style={[styles.credBox, { width: windowWidth - widthNeg }]}>
                         <View style={styles.credBoxUser}>
                             <ImageButton PropStylesImage={styles.profileIcon} propImageLink={require('../../assets/Images/ProfileIcon.png')} />
-                            <Text style={styles.userName}>Hello, {userF}</Text>
+                            <Text style={styles.userName}>Hello, {firstName}</Text>
                         </View>
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.searchIcon} propImageLink={require('../../assets/Images/SearchIcon.png')} />
 
@@ -41,27 +42,7 @@ export default function Home() {
 
                     </View>
 
-                    {/* <View style={[styles.cardBox, { width: windowWidth - widthNeg }]}> */}
-
-                    <View style={styles.cardBox}>
-                        <Image source={require('../../assets/Images/Gradient.png')} style={styles.card} />
-                        <View style={styles.cardBoxTop}>
-                            <Text style={styles.cardText}>EBI Titanium Card</Text>
-                            <Text style={styles.cardText}>{userF} {userL}</Text>
-                        </View>
-
-                        <View style={styles.balanceBox}>
-                            {/* <Text style={styles.mainBalance}>${cardBalance}</Text> */}
-                            <Text style={styles.mainBalance}>$42,069.00</Text>
-                            <Text style={styles.balanceText}>Total Balance</Text>
-
-                        </View>
-                        <ImageButton PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
-                        <View style={styles.cardBoxBottom}>
-                            <Text style={styles.cardText}>MasterCard</Text>
-                            <Text style={styles.cardText}>Account: {accNumber}</Text>
-                        </View>
-                    </View>
+                    <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} />
 
 
                     <View style={[styles.featuresBox, { width: windowWidth - widthNeg }]}>
@@ -86,13 +67,13 @@ export default function Home() {
 let cornerRadius = 35;
 let darkestText = '#202020';
 let darkerText = '#303030';
-let boxColour = '#dddddd';
+let boxColour = '#efefef';
 
 const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'rgba(100,100,100,0.6)',
+        backgroundColor: 'rgba(50,50,50,0.6)',
         // width: '100%',
         // height: '100%',
         alignItems: 'center',
@@ -111,7 +92,7 @@ const styles = StyleSheet.create({
         // borderBottomRightRadius: cornerRadius,
         // borderBottomLeftRadius: cornerRadius,
         borderRadius: cornerRadius,
-        elevation: 5,
+        // elevation: 5,
 
     },
 
@@ -173,70 +154,6 @@ const styles = StyleSheet.create({
         height: 65,
         width: 65,
 
-    },
-
-    cardBox: {
-        width: 350,
-        height: 200,
-        margin: 5,
-        justifyContent: 'space-between',
-        elevation: 10,
-
-    },
-
-    card: {
-        borderRadius: 10,
-        position: 'absolute',
-        resizeMode: 'cover',
-        height: '100%',
-        width: '100%',
-
-    },
-
-    cardBoxTop: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-
-    },
-
-    cardText: {
-        margin: 10,
-        fontSize: 14,
-        color: '#cdcdcd',
-
-    },
-
-    balanceBox: {
-        alignSelf: 'center',
-        alignItems: 'center',
-
-    },
-
-    mainBalance: {
-        color: 'white',
-        fontSize: 40,
-
-    },
-
-    balanceText: {
-        color: 'white',
-        fontSize: 14,
-
-    },
-
-    infoIcon: {
-        position: 'absolute',
-        resizeMode: 'contain',
-        height: 20,
-        width: 20,
-
-    },
-
-    cardBoxBottom: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
     },
 
     featuresBox: {

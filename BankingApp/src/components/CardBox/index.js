@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text, Modal } from 'react-native';
-import ImageTextButton from '../../components/ImageTextButton';
+import ImageButton from '../ImageButton';
 
 export default function CardComponent({ cardType, userF, userL, balance, accNumber, cardVendor }) {
     return (
         <>
-            <View style={styles.cardBox}>
+            <View style={styles.container}>
                 <Image source={require('../../assets/Images/Gradient.png')} style={styles.card} />
                 <View style={styles.cardBoxTop}>
-                    <Text style={styles.cardText}>{cardType}</Text>
                     <Text style={styles.cardText}>{userF} {userL}</Text>
+                    <Text style={styles.cardText}>{cardType}</Text>
                 </View>
 
                 <View style={styles.balanceBox}>
                     {/* <Text style={styles.mainBalance}>${cardBalance}</Text> */}
                     <Text style={styles.mainBalance}>{balance}</Text>
                     <Text style={styles.balanceText}>Total Balance</Text>
-
+                    <ImageButton PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
                 </View>
-                <ImageButton PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
                 <View style={styles.cardBoxBottom}>
-                    <Text style={styles.cardText}>{cardVendor}</Text>
-                    <Text style={styles.cardText}>Account: {accNumber}</Text>
+                    <Text style={styles.cardAccountText}>Account: {accNumber}</Text>
+                    <Image style={styles.cardLogo} source={cardVendor} />
                 </View>
             </View>
         </>
@@ -30,7 +29,7 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
 
 const styles = StyleSheet.create({
 
-    cardBox: {
+    container: {
         width: 350,
         height: 200,
         margin: 5,
@@ -83,6 +82,8 @@ const styles = StyleSheet.create({
     infoIcon: {
         position: 'absolute',
         resizeMode: 'contain',
+        // margin: 5,
+        top: 5,
         height: 20,
         width: 20,
 
@@ -92,7 +93,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        // backgroundColor: 'black',
     },
 
+    cardAccountText: {
+        margin: 10,
+        fontSize: 14,
+        color: '#cdcdcd',
+        alignSelf: 'flex-end',
+
+    },
+
+    cardLogo: {
+        resizeMode: 'contain',
+        width: 50,
+        height: 50,
+        marginHorizontal: 10,
+        //  backgroundColor: 'black',
+    },
 
 })
