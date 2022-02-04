@@ -25,14 +25,14 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                 <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
                     <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
                         <View style={styles.modalPopup} >
-                            <Text style={styles.modalText}>Insert More Information About the Card Here</Text>
+                            <Text style={styles.modalText}>Insert Information About the Card Here</Text>
                             <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} propImageLink={require('../../assets/Images/CloseIcon.png')} />
                         </View>
                     </View>
                 </Modal>
 
                 <View style={styles.cardBoxBottom}>
-                    <Text style={styles.cardAccountText}>Account: {accNumber}</Text>
+                    <Text style={styles.cardText}>Account: {accNumber}</Text>
                     <Image style={cardVendorStyle} source={cardVendor} />
                 </View>
             </View>
@@ -43,9 +43,8 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
 const styles = StyleSheet.create({
 
     container: {
-        width: 350,
+        width: 335,
         height: 200,
-        // margin: 5,
         justifyContent: 'space-between',
         // elevation: 10,
         marginHorizontal: 5,
@@ -65,13 +64,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingHorizontal: 5,
 
     },
 
     cardText: {
         margin: 10,
         fontSize: 14,
-        color: '#cdcdcd',
+        color: '#dadada',
 
     },
 
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     mainBalance: {
         color: 'white',
         fontSize: 40,
-
+        margin: -2.5,
     },
 
     balanceText: {
@@ -141,15 +141,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingHorizontal: 5,
         // backgroundColor: 'black',
-    },
-
-    cardAccountText: {
-        margin: 10,
-        fontSize: 14,
-        color: '#cdcdcd',
-        alignSelf: 'flex-end',
-
     },
 
 })

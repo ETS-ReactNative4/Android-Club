@@ -43,7 +43,7 @@ export default function Home() {
                     </View>
 
                     <View style={styles.scrollCardsContainer} >
-                        <ScrollView style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={350 + 10} snapToAlignment={'center'} decelerationRate={'fast'}>
+                        <ScrollView style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95}>
                             <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
 
                             <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'13,375.00'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient2.png')} modalCornerRadius={cornerRadius} />
@@ -81,8 +81,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgba(50,50,50,0.6)',
-        // width: '100%',
-        // height: '100%',
         alignItems: 'center',
 
     },
@@ -96,8 +94,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         marginTop: 10,
         marginBottom: 5,
-        // borderBottomRightRadius: cornerRadius,
-        // borderBottomLeftRadius: cornerRadius,
         borderRadius: cornerRadius,
         elevation: 10,
 
@@ -174,7 +170,6 @@ const styles = StyleSheet.create({
 
     scrollCards: {
         // backgroundColor: 'black',
-        // height: 200,
         width: '100%',
 
     },
@@ -206,9 +201,7 @@ const styles = StyleSheet.create({
         backgroundColor: boxColour,
         borderRadius: 15,
         padding: 15,
-        // width: '90%',
         marginVertical: 5,
-        // borderWidth: 5,
         // borderColor: borderColour,
 
     },
