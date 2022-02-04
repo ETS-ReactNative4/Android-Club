@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, Text, Modal } from 'react-native';
+import { StyleSheet, View, Image, Text, useWindowDimensions, Modal } from 'react-native';
 import ImageButton from '../ImageButton';
 
-export default function CardComponent({ cardType, userF, userL, balance, accNumber, cardVendor }) {
+export default function CardComponent({ cardType, userF, userL, balance, accNumber, cardVendor, cardVendorStyle, cardBG }) {
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
+    const [showModal, setShowModal] = useState(false);
     return (
         <>
             <View style={styles.container}>
-                <Image source={require('../../assets/Images/Gradient.png')} style={styles.card} />
+                <Image source={cardBG} style={styles.card} />
                 <View style={styles.cardBoxTop}>
                     <Text style={styles.cardText}>{userF} {userL}</Text>
                     <Text style={styles.cardText}>{cardType}</Text>
@@ -16,11 +19,21 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                     {/* <Text style={styles.mainBalance}>${cardBalance}</Text> */}
                     <Text style={styles.mainBalance}>{balance}</Text>
                     <Text style={styles.balanceText}>Total Balance</Text>
-                    <ImageButton PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
+                    <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
                 </View>
+
+                <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
+                    <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
+                        <View style={styles.modalPopup} >
+                            <Text style={styles.modalText}>Insert More Information About the Card Here</Text>
+                            <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} propImageLink={require('../../assets/Images/CloseIcon.png')} />
+                        </View>
+                    </View>
+                </Modal>
+
                 <View style={styles.cardBoxBottom}>
                     <Text style={styles.cardAccountText}>Account: {accNumber}</Text>
-                    <Image style={styles.cardLogo} source={cardVendor} />
+                    <Image style={cardVendorStyle} source={cardVendor} />
                 </View>
             </View>
         </>
@@ -32,9 +45,10 @@ const styles = StyleSheet.create({
     container: {
         width: 350,
         height: 200,
-        margin: 5,
+        // margin: 5,
         justifyContent: 'space-between',
-        elevation: 10,
+        // elevation: 10,
+        marginHorizontal: 5,
 
     },
 
@@ -84,8 +98,42 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         // margin: 5,
         top: 5,
-        height: 20,
-        width: 20,
+        height: 15,
+        width: 15,
+
+    },
+
+    modalContainer: {
+        justifyContent: 'center',
+        flex: 1,
+
+    },
+
+    modalPopup: {
+        height: 225,
+        alignSelf: 'center',
+        width: 300,
+        backgroundColor: '#fafafa',
+        borderRadius: 35,
+        borderWidth: 5,
+        borderColor: 'rgba(255,255,255,0.25)',
+        alignItems: 'center',
+        padding: 25,
+        justifyContent: 'space-between',
+        elevation: 10,
+
+    },
+
+    modalText: {
+        fontSize: 24,
+        color: '#202020',
+
+    },
+
+    closeIcon: {
+        resizeMode: 'contain',
+        height: 50,
+        width: 50,
 
     },
 
@@ -102,14 +150,6 @@ const styles = StyleSheet.create({
         color: '#cdcdcd',
         alignSelf: 'flex-end',
 
-    },
-
-    cardLogo: {
-        resizeMode: 'contain',
-        width: 50,
-        height: 50,
-        marginHorizontal: 10,
-        //  backgroundColor: 'black',
     },
 
 })

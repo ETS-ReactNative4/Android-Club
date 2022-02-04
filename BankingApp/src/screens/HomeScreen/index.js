@@ -13,13 +13,14 @@ export default function Home() {
     let firstName = 'John';
     let lastName = 'Doe';
     let widthNeg = 20;
+    let cornerRadius = 35;
     // let cardVendorLogo = "require('../../assets/Images/MasterCardIcon.png')";
     // Figure out how to set variable to path and pass variables to props for custom component
 
     return (
         <>
             <ImagePlus />
-            {/* <StatusBar hidden={true} /> */}
+            <StatusBar hidden={true} />
             <ScrollView style={styles.scrollable} >
                 <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
                     {/* <View style={styles.container}> */}
@@ -39,11 +40,17 @@ export default function Home() {
                                 </View>
                             </View>
                         </Modal>
-
                     </View>
 
-                    <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} />
+                    <View style={styles.scrollCardsContainer} >
+                        <ScrollView style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={350 + 10} snapToAlignment={'center'} decelerationRate={'fast'}>
+                            <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
 
+                            <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'13,375.00'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient2.png')} modalCornerRadius={cornerRadius} />
+
+                            <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
+                        </ScrollView>
+                    </View>
 
                     <View style={[styles.featuresBox, { width: windowWidth - widthNeg }]}>
                         <View style={styles.featuresTextRow}>
@@ -67,7 +74,7 @@ export default function Home() {
 let cornerRadius = 35;
 let darkestText = '#202020';
 let darkerText = '#303030';
-let boxColour = '#efefef';
+let boxColour = '#fafafa';
 
 const styles = StyleSheet.create({
 
@@ -92,7 +99,7 @@ const styles = StyleSheet.create({
         // borderBottomRightRadius: cornerRadius,
         // borderBottomLeftRadius: cornerRadius,
         borderRadius: cornerRadius,
-        // elevation: 5,
+        elevation: 10,
 
     },
 
@@ -131,13 +138,15 @@ const styles = StyleSheet.create({
     },
 
     modalPopup: {
-        height: 250,
+        height: 225,
         alignSelf: 'center',
-        width: '70%',
+        width: 300,
         backgroundColor: boxColour,
         borderRadius: cornerRadius,
+        borderWidth: 5,
+        borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
-        padding: 30,
+        padding: 25,
         justifyContent: 'space-between',
         elevation: 10,
 
@@ -145,23 +154,62 @@ const styles = StyleSheet.create({
 
     modalText: {
         fontSize: 34,
-        color: '#202020',
+        color: darkestText,
 
     },
 
     closeIcon: {
         resizeMode: 'contain',
-        height: 65,
-        width: 65,
+        height: 50,
+        width: 50,
+
+    },
+
+    scrollCardsContainer: {
+        height: 200,
+        width: '100%',
+        margin: 5,
+        // backgroundColor: 'black',
+    },
+
+    scrollCards: {
+        // backgroundColor: 'black',
+        // height: 200,
+        width: '100%',
+
+    },
+
+    cardLogoVisa: {
+        position: 'absolute',
+        right: 0,
+        resizeMode: 'contain',
+        width: 50,
+        height: 50,
+        marginHorizontal: 10,
+        //  backgroundColor: 'black',
+    },
+
+    cardLogoMasterCard: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        resizeMode: 'contain',
+        width: 50,
+        height: 50,
+        marginHorizontal: 10,
+        //  backgroundColor: 'black',
 
     },
 
     featuresBox: {
+        elevation: 10,
         backgroundColor: boxColour,
         borderRadius: 15,
         padding: 15,
         // width: '90%',
         marginVertical: 5,
+        // borderWidth: 5,
+        // borderColor: borderColour,
 
     },
 
@@ -201,7 +249,7 @@ const styles = StyleSheet.create({
     },
 
     featuresButton: {
-        width: '31%',
+        width: '32%',
         height: '100%',
         backgroundColor: 'white',
         borderRadius: 10,
