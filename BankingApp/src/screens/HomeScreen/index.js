@@ -63,6 +63,7 @@ export default function Home() {
                         </View>
                     </View>
 
+
                     <View style={[styles.featuresBox, { width: windowWidth - widthNeg }]}>
                         <View style={styles.featuresTextRow}>
                             <Text style={styles.featuresH1}>Features</Text>
@@ -75,6 +76,7 @@ export default function Home() {
                         </View>
                     </View>
 
+
                 </View>
             </ScrollView>
         </>
@@ -84,12 +86,13 @@ export default function Home() {
 let cornerRadius = 35;
 let darkestText = '#202020';
 let darkerText = '#303030';
+let boxColour = '#dddddd';
 
 const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'rgba(150,150,150,0.6)',
+        backgroundColor: 'rgba(100,100,100,0.6)',
         // width: '100%',
         // height: '100%',
         alignItems: 'center',
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 70,
-        backgroundColor: '#cdcdcd',
+        backgroundColor: boxColour,
         paddingHorizontal: 15,
         marginTop: 10,
         marginBottom: 5,
@@ -150,7 +153,7 @@ const styles = StyleSheet.create({
         height: 250,
         alignSelf: 'center',
         width: '70%',
-        backgroundColor: 'rgb(255,255,255)',
+        backgroundColor: boxColour,
         borderRadius: cornerRadius,
         alignItems: 'center',
         padding: 30,
@@ -175,9 +178,7 @@ const styles = StyleSheet.create({
     cardBox: {
         width: 350,
         height: 200,
-        // backgroundColor: 'white',
-        marginVertical: 5,
-        // borderRadius: 10,
+        margin: 5,
         justifyContent: 'space-between',
         elevation: 10,
 
@@ -226,7 +227,6 @@ const styles = StyleSheet.create({
 
     infoIcon: {
         position: 'absolute',
-        // alignSelf: 'center',
         resizeMode: 'contain',
         height: 20,
         width: 20,
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     },
 
     featuresBox: {
-        backgroundColor: '#cdcdcd',
+        backgroundColor: boxColour,
         borderRadius: 15,
         padding: 15,
         // width: '90%',
