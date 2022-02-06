@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 
-export default function ImageTextButton({ PropStylesButton, PropStylesImage, PropFunction, propImageLink, PropText, PropStylesText }) {
+export default function ImageTextButton({ PropStylesButton, PropStylesImage, PropFunction, PropImageLink, PropText, PropStylesText }) {
     return (
         <>
             <TouchableOpacity style={[styles.container, PropStylesButton]} activeOpacity={0.9} onPress={PropFunction}>
-                <Image source={propImageLink} style={[styles.image, PropStylesImage]} />
+                <Image source={PropImageLink} style={[styles.image, PropStylesImage]} />
                 <Text style={[styles.text, PropStylesText]}>{PropText}</Text>
             </TouchableOpacity>
         </>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, ScrollView, Text, useWindowDimensions, StatusBar, Modal } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, useWindowDimensions, StatusBar, Modal } from 'react-native';
 import ImageButton from '../../components/ImageButton';
 import ImageTextButton from '../../components/ImageTextButton';
 import TextButton from '../../components/TextButton';
 import CardComponent from '../../components/CardBox';
 import ImageBackground from '../../components/BackgroundImage';
+import RecentCards from '../../components/RecentCards';
 
 export default function Home() {
     const windowWidth = useWindowDimensions().width;
@@ -23,16 +24,16 @@ export default function Home() {
             <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} >
                 <View style={[styles.credBox, { width: windowWidth - widthNeg }]}>
                     <View style={styles.credBoxUser}>
-                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.profileIcon} propImageLink={require('../../assets/Images/ProfileIcon.png')} />
+                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.profileIcon} PropImageLink={require('../../assets/Images/ProfileIcon.png')} />
                         <Text style={styles.userName}>Hello, {firstName}</Text>
                     </View>
-                    <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.searchIcon} propImageLink={require('../../assets/Images/SearchIcon.png')} />
+                    <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.searchIcon} PropImageLink={require('../../assets/Images/SearchIcon.png')} />
 
                     <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
                         <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
                             <View style={styles.modalPopup} >
                                 <Text style={styles.modalText}>This feature does not work.</Text>
-                                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} propImageLink={require('../../assets/Images/CloseIcon.png')} />
+                                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} PropImageLink={require('../../assets/Images/CloseIcon.png')} />
                             </View>
                         </View>
                     </Modal>
@@ -40,32 +41,38 @@ export default function Home() {
 
                 {/* <View style={styles.scrollCardsContainer} > */}
                 <ScrollView contentContainerStyle={styles.scrollCardsContainer} style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
-                    <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
+                    <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'$42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
 
-                    <CardComponent cardType='UPI Titanium Card' userF={firstName} userL={lastName} balance={'42,069.00'} accNumber='VM10262SS' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient2.png')} />
+                    <CardComponent cardType='UPI Titanium Card' userF={firstName} userL={lastName} balance={'$57,473.32'} accNumber='VM10262SS' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient2.png')} />
 
-                    <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'13,375.00'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient3.png')} />
+                    <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'$13,375.49'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient3.png')} />
 
                 </ScrollView>
                 {/* </View> */}
 
-                <View style={[styles.featuresBox, { width: windowWidth - widthNeg }]}>
-                    <View style={styles.featuresTextRow}>
-                        <Text style={styles.featuresH1}>Features</Text>
-                        <TextButton PropStylesText={styles.featuresH2} PropText='See More' />
+                <View style={[styles.compBox, { width: windowWidth - widthNeg }]}>
+                    <View style={styles.compTextRow}>
+                        <Text style={styles.compH1}>Features</Text>
+                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.compH2} PropText='See More' />
                     </View>
                     <View style={styles.featuresButtonRow}>
-                        <ImageTextButton PropText='Send' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} propImageLink={require('../../assets/Images/SendIcon.png')} PropStylesImage={styles.featuresIcon} />
-                        <ImageTextButton PropText='Receive' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} propImageLink={require('../../assets/Images/ReceiveIcon.png')} PropStylesImage={styles.featuresIcon} />
-                        <ImageTextButton PropText='Rewards' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} propImageLink={require('../../assets/Images/RewardsIcon.png')} PropStylesImage={styles.featuresIcon} />
+                        <ImageTextButton PropFunction={() => { setShowModal(!showModal) }} PropText='Send' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} PropImageLink={require('../../assets/Images/SendIcon.png')} PropStylesImage={styles.featuresIcon} />
+                        <ImageTextButton PropFunction={() => { setShowModal(!showModal) }} PropText='Receive' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} PropImageLink={require('../../assets/Images/ReceiveIcon.png')} PropStylesImage={styles.featuresIcon} />
+                        <ImageTextButton PropFunction={() => { setShowModal(!showModal) }} PropText='Rewards' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} PropImageLink={require('../../assets/Images/RewardsIcon.png')} PropStylesImage={styles.featuresIcon} />
                     </View>
                 </View>
 
-                <View style={[styles.recentBox, { width: windowWidth - widthNeg }]}>
-                    <View style={styles.recentTextRow}>
-                        <Text>Recent Activity</Text>
+                <View style={[styles.compBox, { width: windowWidth - widthNeg }]}>
+                    <View style={styles.compTextRow}>
+                        <Text style={styles.compH1}>Recent Activity</Text>
+                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.compH2} PropText='See More' />
                     </View>
 
+                    <RecentCards accountName='Gaurav Sekar' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateStyle={styles.recentCardDate} transactionTime='03:23 PM' transactionAmount={149.00} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/>
+
+                    <RecentCards accountName='Nitheesh Raaja' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateAStyle={styles.recentCardDate} transactionTime='04:32 PM' transactionAmount={-300.20} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/>
+
+                    {/* <RecentCards accountName='Gaurav Sekar' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateStyle={styles.recentCardDate} transactionTime='12:21 PM' transactionAmount={-520.60} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/> */}
 
                 </View>
             </ScrollView>
@@ -77,8 +84,8 @@ let cornerRadius = 35;
 let darkestText = '#202020';
 let darkerText = '#303030';
 let boxColour = '#fafafa';
-let lightFont = 'Montserrat-Light';
-let boldFont = 'Montserrat-Regular';
+let lightFont = 'Montserrat-Regular';
+let boldFont = 'Montserrat-Medium';
 
 const styles = StyleSheet.create({
 
@@ -206,7 +213,7 @@ const styles = StyleSheet.create({
 
     },
 
-    featuresBox: {
+    compBox: {
         elevation: 10,
         backgroundColor: boxColour,
         borderRadius: 15,
@@ -216,7 +223,7 @@ const styles = StyleSheet.create({
 
     },
 
-    featuresTextRow: {
+    compTextRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
@@ -224,7 +231,7 @@ const styles = StyleSheet.create({
 
     },
 
-    featuresH1: {
+    compH1: {
         fontSize: 24,
         // fontWeight: 'bold',
         color: darkestText,
@@ -232,7 +239,7 @@ const styles = StyleSheet.create({
 
     },
 
-    featuresH2: {
+    compH2: {
         fontSize: 14,
         color: darkerText,
         fontFamily: lightFont,
@@ -257,6 +264,12 @@ const styles = StyleSheet.create({
 
     },
 
+    featuresIcon: {
+        height: 25,
+        width: 25,
+        marginHorizontal: 10,
+    },
+
     featuresButtonText: {
         fontSize: 14,
         color: darkestText,
@@ -264,29 +277,48 @@ const styles = StyleSheet.create({
         // paddingHorizontal: 10,
     },
 
-    featuresIcon: {
-        height: 25,
-        width: 25,
-        marginHorizontal: 10,
-    },
-
-    recentBox: {
-        elevation: 10,
-        backgroundColor: boxColour,
-        borderRadius: 15,
-        padding: 10,
-        marginVertical: 5,
-        height: 100,
-        // borderColor: borderColour,
+    recentCards: {
+        width: '100%',
+        // height: 100,
+        backgroundColor: 'white',
+        borderRadius: 10,
 
     },
 
-    recentTextRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        marginBottom: 5,
+    recentCardProfileIcon: {
+        height: 50,
+        width: 50,
+        marginRight: 10,
 
     },
+
+    recentCardName: {
+        fontFamily: boldFont,
+        color: darkestText,
+        fontSize: 18,
+    },
+
+    recentCardDate: {
+        fontSize: 12,
+        fontFamily: lightFont,
+        color: darkerText,
+
+    },
+
+    recentCardTime: {
+        fontSize: 12,
+        fontFamily: lightFont,
+        color: darkerText,
+        textAlign: 'right',
+
+    },
+
+    recentCardAmount: {
+        fontSize: 18,
+        fontFamily: boldFont,
+        textAlign: 'right',
+
+    },
+
 
 })

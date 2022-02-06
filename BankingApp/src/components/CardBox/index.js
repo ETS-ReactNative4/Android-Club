@@ -21,13 +21,13 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                     <Text style={styles.balanceText}>Total Balance</Text>   
                 </View>
 
-                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
+                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} PropImageLink={require('../../assets/Images/InfoIcon.png')} />
 
                 <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
                     <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
                         <View style={styles.modalPopup} >
                             <Text style={styles.modalText}>Insert Information About the Card Here</Text>
-                            <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} propImageLink={require('../../assets/Images/CloseIcon.png')} />
+                            <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} PropImageLink={require('../../assets/Images/CloseIcon.png')} />
                         </View>
                     </View>
                 </Modal>
@@ -41,8 +41,8 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
     )
 }
 
-let lightFont = 'Montserrat-Light';
-let boldFont = 'Montserrat-Regular';
+let lightFont = 'Montserrat-Regular';
+let boldFont = 'Montserrat-Medium';
 
 const styles = StyleSheet.create({
 
