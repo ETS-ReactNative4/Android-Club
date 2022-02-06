@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 
-export default function ImagePlus() {
+export default function ImageBackground() {
     return (
         <>
             {/* <View style={styles.container}> */}

@@ -16,18 +16,17 @@ const styles = StyleSheet.create({
     container: {
         elevation: 10,
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
     },
 
     image: {
-        // resizeMode: 'contain',
-        // height: '100%',
-        // width: '100%',
+        resizeMode: 'contain',
     },
 
     text: {
-        fontSize: 50,
+        fontSize: 10,
+
     }
 
 });

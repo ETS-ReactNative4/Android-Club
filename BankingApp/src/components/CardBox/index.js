@@ -18,9 +18,10 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                 <View style={styles.balanceBox}>
                     {/* <Text style={styles.mainBalance}>${cardBalance}</Text> */}
                     <Text style={styles.mainBalance}>{balance}</Text>
-                    <Text style={styles.balanceText}>Total Balance</Text>
-                    <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
+                    <Text style={styles.balanceText}>Total Balance</Text>   
                 </View>
+
+                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} propImageLink={require('../../assets/Images/InfoIcon.png')} />
 
                 <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
                     <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
@@ -39,6 +40,9 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
         </>
     )
 }
+
+let lightFont = 'Montserrat-Light';
+let boldFont = 'Montserrat-Regular';
 
 const styles = StyleSheet.create({
 
@@ -71,7 +75,8 @@ const styles = StyleSheet.create({
     cardText: {
         margin: 10,
         fontSize: 14,
-        color: '#dadada',
+        color: '#eaeaea',
+        fontFamily: lightFont,
 
     },
 
@@ -84,12 +89,14 @@ const styles = StyleSheet.create({
     mainBalance: {
         color: 'white',
         fontSize: 40,
-        margin: -2.5,
+        fontFamily: boldFont,
+        // margin: -2.5,
     },
 
     balanceText: {
         color: 'white',
         fontSize: 14,
+        fontFamily: lightFont,
 
     },
 
@@ -97,7 +104,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         resizeMode: 'contain',
         // margin: 5,
-        top: 5,
+        // top: 5,
         height: 15,
         width: 15,
 
@@ -110,7 +117,7 @@ const styles = StyleSheet.create({
     },
 
     modalPopup: {
-        height: 225,
+        // height: 225,
         alignSelf: 'center',
         width: 300,
         backgroundColor: '#fafafa',
@@ -118,15 +125,16 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
-        padding: 25,
+        padding: 15,
         justifyContent: 'space-between',
         elevation: 10,
 
     },
 
     modalText: {
-        fontSize: 24,
+        fontSize: 26,
         color: '#202020',
+        fontFamily: boldFont,
 
     },
 
@@ -134,6 +142,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         height: 50,
         width: 50,
+        margin: 10,
 
     },
 

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Image, ScrollView, ActivityIndicator, Text, useWindowDimensions } from 'react-native';
 import TextButton from '../../components/TextButton';
-import ImagePlus from '../../components/BackgroundImage';
+import ImageBackground from '../../components/BackgroundImage';
 
 export default function Loading() {
     const [showLoad, setShowLoad] = useState(false);
-    const windowWidth = useWindowDimensions().width;
-    const windowHeight = useWindowDimensions().height;
     let displayButton = 'flex';
     let displayIndicator = 'none';
     if (showLoad) {
@@ -24,8 +22,8 @@ export default function Loading() {
 
     return (
         <>
-            <ImagePlus />
-            <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
+            <ImageBackground />
+            <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} showsVerticalScrollIndicator={false} >
                 <Image source={require('../../assets/Images/VIT2-White.png')} style={styles.VIT} />
                 <ActivityIndicator size={50} color={'white'} style={[styles.load, { display: displayIndicator }]} animating={showLoad} />
                 <View style={styles.textBox} >
@@ -33,19 +31,27 @@ export default function Loading() {
                     <Text style={[styles.textTwo, { display: displayButton }]} >A New Way That Makes It Easier For You To Go Insane, From Home</Text>
                 </View>
                 <View style={styles.buttonBox} >
-                    <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true); }}></TextButton>
+                    <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true) }}></TextButton>
                 </View>
-
-            </View>
+            </ScrollView>
         </>
     )
 }
 
+let lightFont = 'Montserrat-Light';
+let boldFont = 'Montserrat-Regular';
+
 const styles = StyleSheet.create({
+
+    scrollableContainer: {
+        // flex: 1,
+        alignItems: 'center',
+        // display: 'none',
+    },
 
     container: {
         flex: 1,
-        alignItems: 'center',
+        // alignItems: 'center',
 
     },
 
@@ -73,13 +79,15 @@ const styles = StyleSheet.create({
     textOne: {
         fontSize: 40,
         color: 'white',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily: boldFont,
 
     },
 
     textTwo: {
         fontSize: 17,
         color: '#cdcdcd',
+        fontFamily: lightFont,
     },
 
     buttonBox: {
@@ -102,7 +110,8 @@ const styles = StyleSheet.create({
     LaunchText: {
         fontSize: 25,
         color: '#202020',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily: boldFont,
 
     },
 
