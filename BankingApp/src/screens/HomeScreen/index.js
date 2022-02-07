@@ -24,12 +24,18 @@ export default function Home() {
         { name: 'Aswathy Nair', date: '05 February 2022', time: '11:56 AM', amount: 50.00, key: '5' },
     ]);
 
+    const ItemDivider = () => {
+        return (
+            <View style={{ height: 10, width: "100%" }}
+            />
+        );
+    }
+
     return (
         <>
             <ImageBackground />
             <StatusBar hidden={true} />
             <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
-                {/* <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} > */}
                 <View style={[styles.credBox, { width: windowWidth - widthNeg }]}>
                     <View style={styles.credBoxUser}>
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.profileIcon} PropImageLink={require('../../assets/Images/ProfileIcon.png')} />
@@ -37,14 +43,6 @@ export default function Home() {
                     </View>
                     <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.searchIcon} PropImageLink={require('../../assets/Images/SearchIcon.png')} />
 
-                    <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
-                        <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
-                            <View style={styles.modalPopup} >
-                                <Text style={styles.modalText}>This feature does not work.</Text>
-                                <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} PropImageLink={require('../../assets/Images/CloseIcon.png')} />
-                            </View>
-                        </View>
-                    </Modal>
                 </View>
 
                 {/* Cards Carousel */}
@@ -79,12 +77,13 @@ export default function Home() {
                         <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.h2} PropText='See More' />
                     </View>
 
-                    <FlatList contentContainerStyle={styles.recentCardsContainer} data={recentCardsList} renderItem={({ item }) => (
+                    <FlatList contentContainerStyle={styles.recentCardsContainerInner} data={recentCardsList} renderItem={({ item }) => (
                         <RecentCards containerFunction={() => { setShowModal(!showModal) }} accountName={item.name} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate={item.date} transactionTime={item.time} transactionAmount={item.amount} nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} dateStyle={styles.recentCardDate} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime} />
-                    )} showsVerticalScrollIndicator={false} overScrollMode={'never'} />
+                    )} showsVerticalScrollIndicator={false} overScrollMode={'never'} ItemSeparatorComponent={ItemDivider} />
                 </View>
 
-                <View style={[styles.commonBox, { width: windowWidth - widthNeg }]}>
+                {/* Navigation Bar */}
+                <View style={[styles.navBox, { width: windowWidth - widthNeg }]}>
                     <View style={styles.navButtonRow}>
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/HomeIcon.png')} PropStylesImage={styles.navIcons} />
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/PieIcon.png')} PropStylesImage={styles.navIcons} />
@@ -92,16 +91,26 @@ export default function Home() {
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/BellIcon.png')} PropStylesImage={styles.navIcons} />
                     </View>
                 </View>
+
+                <Modal transparent={true} visible={showModal} onRequestClose={() => { setShowModal(!showModal) }} animationType='fade'>
+                    <View style={[styles.modalContainer, { height: windowHeight, width: windowWidth }]}>
+                        <View style={styles.modalPopup} >
+                            <Text style={styles.modalText}>This feature does not work.</Text>
+                            <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.closeIcon} PropImageLink={require('../../assets/Images/CloseIcon.png')} />
+                        </View>
+                    </View>
+                </Modal>
+
             </View>
         </>
     )
 }
 
-let boxRadius = 25;
-let smallerRadius = 15;
-let darkestText = '#202020';
+let cornerRadius = 15;
+let h1Text = '#202020';
 let darkerText = '#303030';
 let boxColour = '#fafafa';
+let popColour = '#ffffff';
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
 
@@ -122,7 +131,7 @@ const styles = StyleSheet.create({
         backgroundColor: boxColour,
         padding: 10,
         marginBottom: 5,
-        borderRadius: boxRadius,
+        borderRadius: 35,
         elevation: 10,
 
     },
@@ -149,7 +158,7 @@ const styles = StyleSheet.create({
 
     userName: {
         fontSize: 24,
-        color: darkestText,
+        color: h1Text,
         marginHorizontal: 10,
         fontFamily: boldFont,
     },
@@ -163,7 +172,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: 250,
         backgroundColor: boxColour,
-        borderRadius: boxRadius,
+        borderRadius: cornerRadius,
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
@@ -175,7 +184,7 @@ const styles = StyleSheet.create({
 
     modalText: {
         fontSize: 26,
-        color: darkestText,
+        color: h1Text,
         fontFamily: boldFont,
 
     },
@@ -190,7 +199,6 @@ const styles = StyleSheet.create({
 
     scrollCardsContainer: {
         marginVertical: 5,
-        // backgroundColor: 'white',
         alignItems: 'center',
         height: 200,
 
@@ -221,10 +229,9 @@ const styles = StyleSheet.create({
     commonBox: {
         elevation: 10,
         backgroundColor: boxColour,
-        borderRadius: boxRadius,
-        // padding: 10,
+        borderRadius: cornerRadius,
         marginVertical: 5,
-        // borderColor: borderColour,
+        paddingVertical: 10,
 
     },
 
@@ -233,14 +240,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         marginBottom: 5,
-        marginTop: 10,
         marginHorizontal: 10,
 
     },
 
     h1: {
         fontSize: 24,
-        color: darkestText,
+        color: h1Text,
         fontFamily: boldFont,
 
     },
@@ -257,15 +263,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         height: 60,
         marginHorizontal: 10,
-        marginBottom: 10,
 
     },
 
     featuresButton: {
         width: '32%',
         height: '100%',
-        backgroundColor: 'white',
-        borderRadius: smallerRadius,
+        backgroundColor: popColour,
+        borderRadius: cornerRadius,
 
     },
 
@@ -278,21 +283,22 @@ const styles = StyleSheet.create({
 
     featuresButtonText: {
         fontSize: 14,
-        color: darkestText,
+        color: h1Text,
         fontFamily: boldFont,
-        // paddingHorizontal: 10,
+
     },
 
-    recentCardsContainer: {
+    recentCardsContainerInner: {
         paddingHorizontal: 10,
-        // borderRadius: 15,
+        borderRadius: 15,
+        overflow: 'hidden',
+
     },
 
     recentCards: {
         width: '100%',
-        backgroundColor: 'white',
-        borderRadius: smallerRadius,
-        marginBottom: 10,
+        backgroundColor: popColour,
+        borderRadius: cornerRadius,
 
     },
 
@@ -305,7 +311,7 @@ const styles = StyleSheet.create({
 
     recentCardName: {
         fontFamily: boldFont,
-        color: darkestText,
+        color: h1Text,
         fontSize: 18,
 
     },
@@ -332,19 +338,27 @@ const styles = StyleSheet.create({
 
     },
 
+    navBox: {
+        elevation: 10,
+        backgroundColor: boxColour,
+        borderRadius: cornerRadius,
+        marginTop: 5,
+        paddingVertical: 10,
+
+    },
+
     navButtonRow: {
         flexDirection: 'row',
-        alignContent: 'center',
-        alignItems: 'center',
         justifyContent: 'space-evenly',
-        height: 30 + StatusBar.currentHeight,
 
     },
 
     navIcons: {
-        margin: 10,
+        alignSelf: 'center',
+        margin: 5,
         height: 30,
         width: 30,
+
     },
 
 })

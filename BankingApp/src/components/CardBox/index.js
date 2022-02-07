@@ -42,6 +42,7 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
     )
 }
 
+let cornerRadius = 15;
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
 
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: 250,
         backgroundColor: '#fafafa',
-        // borderRadius: 35,
+        borderRadius: cornerRadius,
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
