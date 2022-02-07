@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView, Text, useWindowDimensions, StatusBar, Modal } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, useWindowDimensions, StatusBar, Modal, FlatList } from 'react-native';
 import ImageButton from '../../components/ImageButton';
 import ImageTextButton from '../../components/ImageTextButton';
 import TextButton from '../../components/TextButton';
@@ -16,6 +16,13 @@ export default function Home() {
     let widthNeg = 20;
     // let cardVendorLogo = "require('../../assets/Images/MasterCardIcon.png')";
     // Figure out how to set variable to path and pass variables to props for custom component
+    const [recentCardsList, setRecentCardsList] = useState([
+        { name: 'Gaurav Sekar', date: '19 January 2022', time: '03:23 PM', icon: '../../assets/Images/ProfileIcon.png', amount: 149.00, key: '1' },
+        { name: 'Nitheesh Raja', date: '23 January 2022', time: '09:12 AM', icon: '../../assets/Images/ProfileIcon.png', amount: -200.30, key: '2' },
+        { name: 'Kedar Kulkarni', date: '29 January 2022', time: '01:45 PM', icon: '../../assets/Images/ProfileIcon.png', amount: 236.76, key: '3' },
+        { name: 'Kartk Prasanna', date: '02 February 2022', time: '03:02 PM', icon: '../../assets/Images/ProfileIcon.png', amount: -92.00, key: '4' },
+        { name: 'Aswathy Nair', date: '05 February 2022', time: '11:56 AM', icon: '../../assets/Images/ProfileIcon.png', amount: -50.00, key: '5' },
+    ]);
 
     return (
         <>
@@ -39,7 +46,7 @@ export default function Home() {
                     </Modal>
                 </View>
 
-                {/* <View style={styles.scrollCardsContainer} > */}
+                {/* Cards Carousel */}
                 <ScrollView contentContainerStyle={styles.scrollCardsContainer} style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
                     <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'$42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
 
@@ -48,8 +55,8 @@ export default function Home() {
                     <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'$13,375.49'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient3.png')} />
 
                 </ScrollView>
-                {/* </View> */}
 
+                {/* Features Box */}
                 <View style={[styles.compBox, { width: windowWidth - widthNeg }]}>
                     <View style={styles.compTextRow}>
                         <Text style={styles.compH1}>Features</Text>
@@ -62,19 +69,19 @@ export default function Home() {
                     </View>
                 </View>
 
-                <View style={[styles.compBox, { width: windowWidth - widthNeg }]}>
+                {/* Recent Box */}
+                <View style={[styles.compBox, { width: windowWidth - widthNeg, height: 250 }]}>
                     <View style={styles.compTextRow}>
                         <Text style={styles.compH1}>Recent Activity</Text>
                         <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.compH2} PropText='See More' />
                     </View>
 
-                    <RecentCards accountName='Gaurav Sekar' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateStyle={styles.recentCardDate} transactionTime='03:23 PM' transactionAmount={149.00} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/>
-
-                    <RecentCards accountName='Nitheesh Raaja' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateAStyle={styles.recentCardDate} transactionTime='04:32 PM' transactionAmount={-300.20} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/>
-
-                    {/* <RecentCards accountName='Gaurav Sekar' nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate='22 January 2022' dateStyle={styles.recentCardDate} transactionTime='12:21 PM' transactionAmount={-520.60} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime}/> */}
+                    <FlatList data={recentCardsList} renderItem={({ item }) => (
+                        <RecentCards accountName={item.name} profileIconLink={item.icon} transactionDate={item.date} transactionTime={item.time} transactionAmount={item.amount} nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} dateStyle={styles.recentCardDate} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime} />
+                    )} showsVerticalScrollIndicator={false} />
 
                 </View>
+
             </ScrollView>
         </>
     )
