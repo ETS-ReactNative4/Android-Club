@@ -97,7 +97,8 @@ export default function Home() {
     )
 }
 
-let cornerRadius = 0;
+let boxRadius = 25;
+let smallerRadius = 15;
 let darkestText = '#202020';
 let darkerText = '#303030';
 let boxColour = '#fafafa';
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
         backgroundColor: boxColour,
         padding: 10,
         marginBottom: 5,
-        borderRadius: cornerRadius,
+        borderRadius: boxRadius,
         elevation: 10,
 
     },
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: 250,
         backgroundColor: boxColour,
-        borderRadius: cornerRadius,
+        borderRadius: boxRadius,
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
     commonBox: {
         elevation: 10,
         backgroundColor: boxColour,
-        borderRadius: cornerRadius,
+        borderRadius: boxRadius,
         // padding: 10,
         marginVertical: 5,
         // borderColor: borderColour,
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
         width: '32%',
         height: '100%',
         backgroundColor: 'white',
-        borderRadius: cornerRadius,
+        borderRadius: smallerRadius,
 
     },
 
@@ -290,7 +291,7 @@ const styles = StyleSheet.create({
     recentCards: {
         width: '100%',
         backgroundColor: 'white',
-        borderRadius: cornerRadius,
+        borderRadius: smallerRadius,
         marginBottom: 10,
 
     },
