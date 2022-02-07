@@ -17,18 +17,19 @@ export default function Home() {
     // let cardVendorLogo = "require('../../assets/Images/MasterCardIcon.png')";
     // Figure out how to set variable to path and pass variables to props for custom component
     const [recentCardsList, setRecentCardsList] = useState([
-        { name: 'Gaurav Sekar', date: '19 January 2022', time: '03:23 PM', icon: '../../assets/Images/ProfileIcon.png', amount: 149.00, key: '1' },
-        { name: 'Nitheesh Raja', date: '23 January 2022', time: '09:12 AM', icon: '../../assets/Images/ProfileIcon.png', amount: -200.30, key: '2' },
-        { name: 'Kedar Kulkarni', date: '29 January 2022', time: '01:45 PM', icon: '../../assets/Images/ProfileIcon.png', amount: 236.76, key: '3' },
-        { name: 'Kartk Prasanna', date: '02 February 2022', time: '03:02 PM', icon: '../../assets/Images/ProfileIcon.png', amount: -92.00, key: '4' },
-        { name: 'Aswathy Nair', date: '05 February 2022', time: '11:56 AM', icon: '../../assets/Images/ProfileIcon.png', amount: -50.00, key: '5' },
+        { name: 'Gaurav Sekar', date: '19 January 2022', time: '03:23 PM', amount: 149.00, key: '1' },
+        { name: 'Nitheesh Raaja', date: '23 January 2022', time: '09:12 AM', amount: -200.30, key: '2' },
+        { name: 'Kedar Kulkarni', date: '29 January 2022', time: '01:45 PM', amount: 236.76, key: '3' },
+        { name: 'Kartik Prasanna', date: '02 February 2022', time: '03:02 PM', amount: -92.00, key: '4' },
+        { name: 'Aswathy Nair', date: '05 February 2022', time: '11:56 AM', amount: 50.00, key: '5' },
     ]);
 
     return (
         <>
             <ImageBackground />
-            <StatusBar hidden={true} />
-            <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} >
+            {/* <StatusBar hidden={true} /> */}
+            <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
+                {/* <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} > */}
                 <View style={[styles.credBox, { width: windowWidth - widthNeg }]}>
                     <View style={styles.credBoxUser}>
                         <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.profileIcon} PropImageLink={require('../../assets/Images/ProfileIcon.png')} />
@@ -47,20 +48,22 @@ export default function Home() {
                 </View>
 
                 {/* Cards Carousel */}
-                <ScrollView contentContainerStyle={styles.scrollCardsContainer} style={styles.scrollCards} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
-                    <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'$42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
+                <View style={styles.scrollCardsContainer}>
+                    <ScrollView style={styles.scrollCardsInnnerContainer} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
 
-                    <CardComponent cardType='UPI Titanium Card' userF={firstName} userL={lastName} balance={'$57,473.32'} accNumber='VM10262SS' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient2.png')} />
+                        <CardComponent cardType='UPI Titanium Card' userF={firstName} userL={lastName} balance={'$57,473.32'} accNumber='VM10262SS' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient2.png')} />
 
-                    <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'$13,375.49'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient3.png')} />
+                        <CardComponent cardType='EBI Titanium Card' userF={firstName} userL={lastName} balance={'$42,069.00'} accNumber='NI69420CE' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient.png')} />
 
-                </ScrollView>
+                        <CardComponent cardType='XYZ Platinum Card' userF={firstName} userL={lastName} balance={'$13,375.49'} accNumber='CR13375AP' cardVendor={require('../../assets/Images/VisaIcon.png')} cardVendorStyle={styles.cardLogoVisa} cardBG={require('../../assets/Images/Gradient3.png')} />
+                    </ScrollView>
+                </View>
 
                 {/* Features Box */}
-                <View style={[styles.compBox, { width: windowWidth - widthNeg }]}>
-                    <View style={styles.compTextRow}>
-                        <Text style={styles.compH1}>Features</Text>
-                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.compH2} PropText='See More' />
+                <View style={[styles.commonBox, { width: windowWidth - widthNeg }]}>
+                    <View style={styles.commonTextRow}>
+                        <Text style={styles.h1}>Features</Text>
+                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.h2} PropText='See More' />
                     </View>
                     <View style={styles.featuresButtonRow}>
                         <ImageTextButton PropFunction={() => { setShowModal(!showModal) }} PropText='Send' PropStylesButton={styles.featuresButton} PropStylesText={styles.featuresButtonText} PropImageLink={require('../../assets/Images/SendIcon.png')} PropStylesImage={styles.featuresIcon} />
@@ -70,24 +73,31 @@ export default function Home() {
                 </View>
 
                 {/* Recent Box */}
-                <View style={[styles.compBox, { width: windowWidth - widthNeg, height: 250 }]}>
-                    <View style={styles.compTextRow}>
-                        <Text style={styles.compH1}>Recent Activity</Text>
-                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.compH2} PropText='See More' />
+                <View style={[styles.commonBox, { width: windowWidth - widthNeg, flex: 1, }]}>
+                    <View style={styles.commonTextRow}>
+                        <Text style={styles.h1}>Recent Activity</Text>
+                        <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.h2} PropText='See More' />
                     </View>
 
-                    <FlatList data={recentCardsList} renderItem={({ item }) => (
-                        <RecentCards accountName={item.name} profileIconLink={item.icon} transactionDate={item.date} transactionTime={item.time} transactionAmount={item.amount} nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} dateStyle={styles.recentCardDate} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime} />
-                    )} showsVerticalScrollIndicator={false} />
-
+                    <FlatList contentContainerStyle={styles.recentCardsContainer} data={recentCardsList} renderItem={({ item }) => (
+                        <RecentCards containerFunction={() => { setShowModal(!showModal) }} accountName={item.name} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate={item.date} transactionTime={item.time} transactionAmount={item.amount} nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} dateStyle={styles.recentCardDate} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime} />
+                    )} showsVerticalScrollIndicator={false} overScrollMode={'never'} />
                 </View>
 
-            </ScrollView>
+                <View style={[styles.commonBox, { width: windowWidth - widthNeg }]}>
+                    <View style={styles.navButtonRow}>
+                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/HomeIcon.png')} PropStylesImage={styles.navIcons} />
+                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/PieIcon.png')} PropStylesImage={styles.navIcons} />
+                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/SwitchIcon.png')} PropStylesImage={styles.navIcons} />
+                        <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropImageLink={require('../../assets/Images/BellIcon.png')} PropStylesImage={styles.navIcons} />
+                    </View>
+                </View>
+            </View>
         </>
     )
 }
 
-let cornerRadius = 35;
+let cornerRadius = 0;
 let darkestText = '#202020';
 let darkerText = '#303030';
 let boxColour = '#fafafa';
@@ -96,16 +106,11 @@ let boldFont = 'Montserrat-Medium';
 
 const styles = StyleSheet.create({
 
-    scrollableContainer: {
-        // flex: 1,
-        alignItems: 'center',
-        // display: 'none',
-    },
-
     container: {
-        flex: 1,
         backgroundColor: 'rgba(50,50,50,0.6)',
-        // alignItems: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        paddingVertical: 10,
 
     },
 
@@ -113,10 +118,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: 70,
         backgroundColor: boxColour,
-        paddingHorizontal: 15,
-        marginTop: 10,
+        padding: 10,
         marginBottom: 5,
         borderRadius: cornerRadius,
         elevation: 10,
@@ -145,7 +148,6 @@ const styles = StyleSheet.create({
 
     userName: {
         fontSize: 24,
-        // fontWeight: 'bold',
         color: darkestText,
         marginHorizontal: 10,
         fontFamily: boldFont,
@@ -153,14 +155,12 @@ const styles = StyleSheet.create({
 
     modalContainer: {
         justifyContent: 'center',
-        flex: 1,
 
     },
 
     modalPopup: {
-        // height: 225,
         alignSelf: 'center',
-        width: 300,
+        width: 250,
         backgroundColor: boxColour,
         borderRadius: cornerRadius,
         borderWidth: 5,
@@ -181,22 +181,20 @@ const styles = StyleSheet.create({
 
     closeIcon: {
         resizeMode: 'contain',
-        height: 50,
-        width: 50,
+        height: 40,
+        width: 40,
         margin: 10,
 
     },
 
     scrollCardsContainer: {
-        margin: 5,
-        // backgroundColor: 'black',
-    },
-
-    scrollCards: {
-        // backgroundColor: 'black',
-        width: '100%',
+        marginVertical: 5,
+        // backgroundColor: 'white',
+        alignItems: 'center',
+        height: 200,
 
     },
+
 
     cardLogoVisa: {
         position: 'absolute',
@@ -205,7 +203,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginHorizontal: 10,
-        //  backgroundColor: 'black',
+
     },
 
     cardLogoMasterCard: {
@@ -216,37 +214,37 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginHorizontal: 10,
-        //  backgroundColor: 'black',
 
     },
 
-    compBox: {
+    commonBox: {
         elevation: 10,
         backgroundColor: boxColour,
-        borderRadius: 15,
-        padding: 10,
+        borderRadius: cornerRadius,
+        // padding: 10,
         marginVertical: 5,
         // borderColor: borderColour,
 
     },
 
-    compTextRow: {
+    commonTextRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         marginBottom: 5,
+        marginTop: 10,
+        marginHorizontal: 10,
 
     },
 
-    compH1: {
+    h1: {
         fontSize: 24,
-        // fontWeight: 'bold',
         color: darkestText,
         fontFamily: boldFont,
 
     },
 
-    compH2: {
+    h2: {
         fontSize: 14,
         color: darkerText,
         fontFamily: lightFont,
@@ -254,11 +252,11 @@ const styles = StyleSheet.create({
     },
 
     featuresButtonRow: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         height: 60,
-        // marginVertical: 5,
+        marginHorizontal: 10,
+        marginBottom: 10,
 
     },
 
@@ -266,8 +264,7 @@ const styles = StyleSheet.create({
         width: '32%',
         height: '100%',
         backgroundColor: 'white',
-        borderRadius: 10,
-        // padding: 10,
+        borderRadius: cornerRadius,
 
     },
 
@@ -275,6 +272,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         marginHorizontal: 10,
+
     },
 
     featuresButtonText: {
@@ -284,11 +282,16 @@ const styles = StyleSheet.create({
         // paddingHorizontal: 10,
     },
 
+    recentCardsContainer: {
+        paddingHorizontal: 10,
+        // borderRadius: 15,
+    },
+
     recentCards: {
         width: '100%',
-        // height: 100,
         backgroundColor: 'white',
-        borderRadius: 10,
+        borderRadius: cornerRadius,
+        marginBottom: 10,
 
     },
 
@@ -303,6 +306,7 @@ const styles = StyleSheet.create({
         fontFamily: boldFont,
         color: darkestText,
         fontSize: 18,
+
     },
 
     recentCardDate: {
@@ -327,5 +331,19 @@ const styles = StyleSheet.create({
 
     },
 
+    navButtonRow: {
+        flexDirection: 'row',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        height: 60 + + StatusBar.currentHeight,
+
+    },
+
+    navIcons: {
+        margin: 10,
+        height: 30,
+        width: 30,
+    },
 
 })

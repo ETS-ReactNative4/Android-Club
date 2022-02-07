@@ -18,7 +18,7 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                 <View style={styles.balanceBox}>
                     {/* <Text style={styles.mainBalance}>${cardBalance}</Text> */}
                     <Text style={styles.mainBalance}>{balance}</Text>
-                    <Text style={styles.balanceText}>Total Balance</Text>   
+                    <Text style={styles.balanceText}>Total Balance</Text>
                 </View>
 
                 <ImageButton PropFunction={() => { setShowModal(!showModal) }} PropStylesImage={styles.infoIcon} PropImageLink={require('../../assets/Images/InfoIcon.png')} />
@@ -37,6 +37,7 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
                     <Image style={cardVendorStyle} source={cardVendor} />
                 </View>
             </View>
+
         </>
     )
 }
@@ -119,9 +120,9 @@ const styles = StyleSheet.create({
     modalPopup: {
         // height: 225,
         alignSelf: 'center',
-        width: 300,
+        width: 250,
         backgroundColor: '#fafafa',
-        borderRadius: 35,
+        // borderRadius: 35,
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
         alignItems: 'center',
@@ -140,8 +141,8 @@ const styles = StyleSheet.create({
 
     closeIcon: {
         resizeMode: 'contain',
-        height: 50,
-        width: 50,
+        height: 40,
+        width: 40,
         margin: 10,
 
     },

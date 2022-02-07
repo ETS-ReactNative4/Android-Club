@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         // marginVertical: 5,
+        
     },
 
     leftBox: {
@@ -49,19 +50,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // backgroundColor: 'blue',
         padding: 10,
+
     },
 
     profileIcon: {
         resizeMode: 'contain',
+
     },
 
     nameDateBox: {
         // backgroundColor: 'blue',
+
     },
 
     rightBox: {
         padding: 10,
         // backgroundColor: 'blue',
+
     },
 
 });
