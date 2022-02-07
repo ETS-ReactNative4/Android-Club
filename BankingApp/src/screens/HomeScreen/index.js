@@ -27,7 +27,7 @@ export default function Home() {
     return (
         <>
             <ImageBackground />
-            {/* <StatusBar hidden={true} /> */}
+            <StatusBar hidden={true} />
             <View style={[styles.container, { height: windowHeight, width: windowWidth }]}>
                 {/* <ScrollView contentContainerStyle={styles.scrollableContainer} style={styles.container} > */}
                 <View style={[styles.credBox, { width: windowWidth - widthNeg }]}>
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        height: 60 + + StatusBar.currentHeight,
+        height: 30 + StatusBar.currentHeight,
 
     },
 
