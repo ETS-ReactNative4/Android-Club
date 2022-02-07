@@ -107,17 +107,17 @@ export default function Home() {
 }
 
 let cornerRadius = 15;
-let h1Text = '#202020';
-let darkerText = '#303030';
-let boxColour = '#fafafa';
-let popColour = '#ffffff';
+let h1Text = '#ffffff';
+let h2Text = '#aaaaaa';
+let boxColour = '#100025';
+let popColour = '#202020';
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
 
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: 'rgba(50,50,50,0.6)',
+        backgroundColor: 'rgba(50,50,50,0.5)',
         alignItems: 'center',
         alignContent: 'center',
         paddingVertical: 10,
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
 
     h2: {
         fontSize: 14,
-        color: darkerText,
+        color: h2Text,
         fontFamily: lightFont,
 
     },
@@ -319,14 +319,14 @@ const styles = StyleSheet.create({
     recentCardDate: {
         fontSize: 12,
         fontFamily: lightFont,
-        color: darkerText,
+        color: h2Text,
 
     },
 
     recentCardTime: {
         fontSize: 12,
         fontFamily: lightFont,
-        color: darkerText,
+        color: h2Text,
         textAlign: 'right',
 
     },
