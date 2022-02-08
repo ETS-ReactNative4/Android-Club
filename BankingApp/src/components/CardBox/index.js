@@ -42,8 +42,8 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
     )
 }
 
-let boxColour = '#100010';
-let popColour = '#202020';
+let boxColour = '#fffaff';
+let popColour = '#ffffff';
 let cornerRadius = 15;
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 
     modalText: {
         fontSize: 26,
-        color: h1Text,
+        color: '#202020',
         fontFamily: boldFont,
 
     },

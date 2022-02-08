@@ -107,10 +107,10 @@ export default function Home() {
 }
 
 let cornerRadius = 15;
-let h1Text = '#ffffff';
-let h2Text = '#eaeaea';
-let boxColour = '#100010';
-let popColour = '#151515';
+let h1Text = '#000000';
+let h2Text = '#202020';
+let boxColour = '#fffaff';
+let popColour = '#ffffff';
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
 
@@ -271,13 +271,13 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: popColour,
         borderRadius: cornerRadius,
-
+        padding: 10,
     },
 
     featuresIcon: {
         height: 25,
         width: 25,
-        marginHorizontal: 10,
+        // marginHorizontal: 10,
 
     },
 
@@ -285,13 +285,14 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: h1Text,
         fontFamily: boldFont,
+        paddingHorizontal: 10,
 
     },
 
     recentCardsContainerInner: {
         paddingHorizontal: 10,
         borderRadius: 15,
-        overflow: 'hidden',
+        // overflow: 'hidden',
 
     },
 
