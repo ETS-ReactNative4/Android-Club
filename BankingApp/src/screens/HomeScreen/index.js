@@ -108,9 +108,9 @@ export default function Home() {
 
 let cornerRadius = 15;
 let h1Text = '#ffffff';
-let h2Text = '#aaaaaa';
-let boxColour = '#100025';
-let popColour = '#202020';
+let h2Text = '#eaeaea';
+let boxColour = '#100010';
+let popColour = '#151515';
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
 

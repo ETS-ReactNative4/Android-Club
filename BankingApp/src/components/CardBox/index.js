@@ -42,9 +42,13 @@ export default function CardComponent({ cardType, userF, userL, balance, accNumb
     )
 }
 
+let boxColour = '#100010';
+let popColour = '#202020';
 let cornerRadius = 15;
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
+let h1Text = '#ffffff';
+let h2Text = '#eaeaea';
 
 const styles = StyleSheet.create({
 
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
     cardText: {
         margin: 10,
         fontSize: 14,
-        color: '#eaeaea',
+        color: h2Text,
         fontFamily: lightFont,
 
     },
@@ -89,14 +93,14 @@ const styles = StyleSheet.create({
     },
 
     mainBalance: {
-        color: 'white',
+        color: h1Text,
         fontSize: 40,
         fontFamily: boldFont,
         // margin: -2.5,
     },
 
     balanceText: {
-        color: 'white',
+        color: h1Text,
         fontSize: 14,
         fontFamily: lightFont,
 
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
 
     modalContainer: {
         justifyContent: 'center',
-        flex: 1,
+        // flex: 1,
 
     },
 
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
         // height: 225,
         alignSelf: 'center',
         width: 250,
-        backgroundColor: '#fafafa',
+        backgroundColor: boxColour,
         borderRadius: cornerRadius,
         borderWidth: 5,
         borderColor: 'rgba(255,255,255,0.25)',
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
 
     modalText: {
         fontSize: 26,
-        color: '#202020',
+        color: h1Text,
         fontFamily: boldFont,
 
     },
