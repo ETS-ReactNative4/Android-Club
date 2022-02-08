@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image, ScrollView, ActivityIndicator, Text, useWindowDimensions } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Image, ScrollView, ActivityIndicator, Text } from 'react-native';
 import TextButton from '../../components/TextButton';
 import ImageBackground from '../../components/BackgroundImage';
 
@@ -7,19 +7,11 @@ export default function Loading({ navigation }) {
     const [showLoad, setShowLoad] = useState(false);
     let displayButton = 'flex';
     let displayIndicator = 'none';
+
     if (showLoad) {
         displayButton = 'none';
         displayIndicator = 'flex';
     }
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShowLoad(false);
-            navigation.navigate('Home');
-        }, 3500);
-        
-        return () => clearTimeout(timeout);
-    }, [showLoad]);
 
     return (
         <>
@@ -32,7 +24,7 @@ export default function Loading({ navigation }) {
                     <Text style={[styles.textTwo, { display: displayButton }]} >A New Way That Makes It Easier For You To Go Insane, From Home</Text>
                 </View>
                 <View style={styles.buttonBox} >
-                    <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true) }}></TextButton>
+                    <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true); setTimeout(() => { setShowLoad(false); navigation.navigate('Home'); return () => clearTimeout(timeout); }, 3500); }}></TextButton>
                 </View>
             </ScrollView>
         </>
@@ -41,6 +33,7 @@ export default function Loading({ navigation }) {
 
 let lightFont = 'Montserrat-Regular';
 let boldFont = 'Montserrat-Medium';
+let cornerRadius = 15;
 
 const styles = StyleSheet.create({
 
