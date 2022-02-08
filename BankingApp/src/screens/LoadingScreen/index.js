@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, ScrollView, ActivityIndicator, Text, useWindow
 import TextButton from '../../components/TextButton';
 import ImageBackground from '../../components/BackgroundImage';
 
-export default function Loading() {
+export default function Loading({ navigation }) {
     const [showLoad, setShowLoad] = useState(false);
     let displayButton = 'flex';
     let displayIndicator = 'none';
@@ -15,8 +15,9 @@ export default function Loading() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowLoad(false);
+            navigation.navigate('Home');
         }, 3500);
-
+        
         return () => clearTimeout(timeout);
     }, [showLoad]);
 
@@ -38,8 +39,8 @@ export default function Loading() {
     )
 }
 
-let lightFont = 'Montserrat-Light';
-let boldFont = 'Montserrat-Regular';
+let lightFont = 'Montserrat-Regular';
+let boldFont = 'Montserrat-Medium';
 
 const styles = StyleSheet.create({
 
