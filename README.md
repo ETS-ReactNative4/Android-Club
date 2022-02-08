@@ -31,3 +31,15 @@ title="Login Page Landscape" height="200" />
 title="Counter Portrait" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/150578320-fb2c7920-2b7e-48e3-b54c-cbf527169644.png" alt="Screenshot Landscape"
 title="Counter Landscape" height="200" />
+
+### Assignment 4 - Banking/GPay Ripoff
+- Used FlatList, ScrollView, Modal, Activityindicator, and React Navigation.
+- Inspiration: https://dribbble.com/shots/17411851-finance-mobile-interface
+https://dribbble.com/shots/17409666-Investkan-Investment-Bank-Mobile-App/attachments/12536816?mode=media
+
+#### issues
+- Definitely not an optimised project; Extremely laggy until I scaled down the source images.
+- Icons look pixelated and have jagged lines, irrespective of source image size.
+- Probably not the right way to implement React Navigation, but I liked the SplashScreen, so I used it. 
+
+#### Screenshots

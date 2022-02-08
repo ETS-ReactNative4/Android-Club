@@ -20,8 +20,8 @@ export default function Loading({ navigation }) {
                 <Image source={require('../../assets/Images/VIT2-White.png')} style={styles.VIT} />
                 <ActivityIndicator size={50} color={'white'} style={[styles.load, { display: displayIndicator }]} animating={showLoad} />
                 <View style={styles.textBox} >
-                    <Text style={[styles.textOne, { display: displayButton }]} >Easy Way{'\n'}To Go Insane</Text>
-                    <Text style={[styles.textTwo, { display: displayButton }]} >A New Way That Makes It Easier For You To Go Insane, From Home</Text>
+                    <Text style={[styles.textOne, { display: displayButton }]} >Payments{'\n'}Made Easy </Text>
+                    <Text style={[styles.textTwo, { display: displayButton }]} >A New Way That Makes It Easier For You To Handle Your Transactions, Digitally</Text>
                 </View>
                 <View style={styles.buttonBox} >
                     <TextButton PropText='Get Started' PropStylesButton={[styles.launchButton, { display: displayButton }]} PropStylesText={styles.LaunchText} PropFunction={() => { setShowLoad(true); setTimeout(() => { setShowLoad(false); navigation.navigate('Home'); return () => clearTimeout(timeout); }, 3500); }}></TextButton>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         margin: 10,
         width: 200,
         height: 60,
-        borderRadius: 12.5,
+        borderRadius: cornerRadius,
         elevation: 5,
 
     },
