@@ -40,6 +40,7 @@ https://dribbble.com/shots/17409666-Investkan-Investment-Bank-Mobile-App/attachm
 #### issues
 - Definitely not an optimised project; Extremely laggy until I scaled down the source images.
 - Icons look pixelated and have jagged lines, irrespective of source image size.
+- FlatList "Cards" Shadow(Elevation) gets cut off by Parent View's Padding.
 - Probably not the right way to implement React Navigation, but I liked the SplashScreen, so I used it. 
 
 #### Screenshots
