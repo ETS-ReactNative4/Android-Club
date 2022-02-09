@@ -40,8 +40,7 @@ https://dribbble.com/shots/17409666-Investkan-Investment-Bank-Mobile-App/attachm
 #### issues
 - Definitely not an optimised project; Extremely laggy until I scaled down the source images.
 - Icons look pixelated and have jagged lines, irrespective of source image size.
-- FlatList "Cards" Shadow(Elevation) gets cut off by Parent View's Padding.
-- The first and last "Cards" in the "Credit Card Display" thing will not snap to the centre of the display. 
+- FlatList "Cards" Shadow(Elevation) gets cut off by Parent View's Padding. 
 - Probably not the right way to implement React Navigation, but I liked the SplashScreen, so I used it for now. 
 
 #### Screenshots
@@ -49,7 +48,7 @@ https://dribbble.com/shots/17409666-Investkan-Investment-Bank-Mobile-App/attachm
 title="Splash Screen" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/153058703-d4475bf6-6ded-4826-8ac1-c81f9ba5108c.png" alt="Screenshot 2"
 title="Activity Indicator" height="500" /> \
-<img src="https://user-images.githubusercontent.com/95037274/153058706-20423601-081b-4f62-ad9f-3fe57d4e4d84.png" alt="Screenshot 3"
+<img src="https://user-images.githubusercontent.com/95037274/153183483-8b505089-6585-42c0-a3a2-b66659fb828b.png" alt="Screenshot 3"
 title="Home Page" height="500" /> \
-<img src="https://user-images.githubusercontent.com/95037274/153058710-19b7f12e-7420-4ad2-b009-efcc6b0b8803.png" alt="Screenshot 4"
-title="Modal Pop-Up" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/153183506-4722e613-6b28-4545-875a-ef9fbc885b14.png" alt="Screenshot 4"
+title="Modal Pop-Up" height="500" /> 

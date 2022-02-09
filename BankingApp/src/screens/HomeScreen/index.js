@@ -47,7 +47,7 @@ export default function Home() {
 
                 {/* Cards Carousel */}
                 <View style={styles.scrollCardsContainer}>
-                    <ScrollView style={styles.scrollCardsInnnerContainer} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={335 + 10} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
+                    <ScrollView contentContainerStyle={{ paddingHorizontal: (windowWidth - 345) / 2 }} style={styles.scrollCardsInnnerContainer} showsHorizontalScrollIndicator={false} horizontal={true} snapToInterval={345 + (windowWidth - 365) / 2} snapToAlignment={'center'} decelerationRate={0.95} overScrollMode={'never'} >
 
                         <CardComponent cardType='UPI Titanium Card' userF={firstName} userL={lastName} balance={'$57,473.32'} accNumber='VM10262SS' cardVendor={require('../../assets/Images/MasterCardIcon.png')} cardVendorStyle={styles.cardLogoMasterCard} cardBG={require('../../assets/Images/Gradient2.png')} />
 
@@ -199,8 +199,8 @@ const styles = StyleSheet.create({
 
     scrollCardsContainer: {
         marginVertical: 5,
-        alignItems: 'center',
         height: 200,
+        // width: 345,
 
     },
 

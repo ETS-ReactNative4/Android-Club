@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text, useWindowDimensions, Modal } from 'react-native';
 import ImageButton from '../ImageButton';
 
-export default function CardComponent({ cardType, userF, userL, balance, accNumber, cardVendor, cardVendorStyle, cardBG }) {
+export default function CardComponent({ boxStyle, cardType, userF, userL, balance, accNumber, cardVendor, cardVendorStyle, cardBG }) {
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <View style={styles.container}>
+            <View style={[styles.container, boxStyle]}>
                 <Image source={cardBG} style={styles.card} />
                 <View style={styles.cardBoxTop}>
                     <Text style={styles.cardText}>{userF} {userL}</Text>
