@@ -71,12 +71,11 @@ export default function Home() {
                 </View>
 
                 {/* Recent Box */}
-                <View style={[styles.commonBox, { width: windowWidth - widthNeg, flex: 1, }]}>
+                <View style={[styles.commonBox, { width: windowWidth - widthNeg, flex: 1 }]}>
                     <View style={styles.commonTextRow}>
                         <Text style={styles.h1}>Recent Activity</Text>
                         <TextButton PropFunction={() => { setShowModal(!showModal) }} PropStylesText={styles.h2} PropText='See More' />
                     </View>
-
                     <FlatList contentContainerStyle={styles.recentCardsContainerInner} data={recentCardsList} renderItem={({ item }) => (
                         <RecentCards containerFunction={() => { setShowModal(!showModal) }} accountName={item.name} profileIconLink={require('../../assets/Images/ProfileIcon.png')} transactionDate={item.date} transactionTime={item.time} transactionAmount={item.amount} nameStyle={styles.recentCardName} containerStyle={styles.recentCards} profileIconStyle={styles.recentCardProfileIcon} dateStyle={styles.recentCardDate} amountStyle={styles.recentCardAmount} TimeStyle={styles.recentCardTime} />
                     )} showsVerticalScrollIndicator={false} overScrollMode={'never'} ItemSeparatorComponent={ItemDivider} />
@@ -277,7 +276,6 @@ const styles = StyleSheet.create({
     featuresIcon: {
         height: 25,
         width: 25,
-        // marginHorizontal: 10,
 
     },
 
@@ -291,8 +289,8 @@ const styles = StyleSheet.create({
 
     recentCardsContainerInner: {
         paddingHorizontal: 10,
-        borderRadius: 15,
-        // overflow: 'hidden',
+        paddingTop: 5,
+        overflow: 'hidden',
 
     },
 
