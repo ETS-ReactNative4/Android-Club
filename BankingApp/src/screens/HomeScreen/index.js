@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
 
     recentCardsContainerInner: {
         paddingHorizontal: 10,
-        paddingTop: 5,
+        // paddingTop: 5,
         overflow: 'hidden',
 
     },
