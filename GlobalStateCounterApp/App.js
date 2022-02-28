@@ -1,10 +1,11 @@
 import React from 'react';
-import CounterScreen from './src/screens/CounterScreen';
+import MainScreen from './src/screens/MainScreen';
 
 export default function App() {
   return (
     <>
-      <CounterScreen />
+    <MainScreen />
     </>
   )
 }
+
