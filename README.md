@@ -52,3 +52,19 @@ title="Activity Indicator" height="500" /> \
 title="Home Page" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/153183506-4722e613-6b28-4545-875a-ef9fbc885b14.png" alt="Screenshot 4"
 title="Modal Pop-Up" height="500" /> 
+
+### Assignment 5 - Context API
+- Reused Counter Application to implement Context API.
+- Top(Counter) and bottom(Buttons) halves of the screen are seperate components, and a "global state" is used to link them both.
+- Changed '+', '-' from text to vector icons.
+
+#### Issues
+- Running with --variant=release(to test on my physical device) causes app to crash/not open. Running the app normally works though.
+ 
+#### Screenshots
+<img src="https://user-images.githubusercontent.com/95037274/156096973-d6778093-c6a4-42b8-af01-3d7bc7af8e6e.png" alt="Screenshot Portrait 1"
+title="Counter Portrait" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/156096978-db8d69ef-84b9-45bd-baa5-2d901f0c1926.png" alt="Screenshot Portrait 2"
+title="Counter Portrait 2" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/156096981-c9871289-38fc-44c8-8d5f-278d9643589b.png" alt="Screenshot Portrait 3"
+title="Counter Portrait 3" height="500" /> 

@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import CustomButton from '../CustomButton';
 
+import { useCounterContext } from '../../context/contextProvider';
+
 export default function BottomHalf() {
-    const [count, setCount] = useState(0);
+    const counterContext = useCounterContext();
+
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
-    let fontColor = '#ebebeb';
-    if (count < 0) {
-        fontColor = '#282828';
-    } else {
-        fontColor = '#ebebeb';
-    }
 
     return (
         <>
             <View style={[styles.buttonRow, { width: windowWidth - 20, height: (windowHeight * 0.5) - 15 }]}>
-                <CustomButton PropIconName={'minus'} PropStylesButton={[styles.button, { width: (windowWidth / 2) - 40, height: (windowHeight * 0.5) - 55 }]} PropStylesText={styles.buttonIcon} PropFunction={() => setCount(count - 1)} />
+                <CustomButton PropIconName={'minus'} PropStylesButton={[styles.button, { marginRight: 5 }]} PropStylesText={styles.buttonIcon} PropFunction={() => counterContext.setCount(counterContext.count - 1)} />
 
-                <CustomButton PropIconName={'plus'} PropStylesButton={[styles.button, { width: (windowWidth / 2) - 40, height: (windowHeight * 0.5) - 55 }]} PropStylesText={styles.buttonIcon} PropFunction={() => setCount(count + 1)} />
+                <CustomButton PropIconName={'plus'} PropStylesButton={[styles.button, { marginLeft: 5 }]} PropStylesText={styles.buttonIcon} PropFunction={() => counterContext.setCount(counterContext.count + 1)} />
             </View>
-            {/* </View> */}
         </>
     )
 }
@@ -39,9 +35,10 @@ const styles = StyleSheet.create({
         borderRadius: cornerRadius,
         // height: '50%',
         // width: windowWidth - 10,
+        padding: 10,
         margin: 5,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
 
     },
@@ -49,9 +46,12 @@ const styles = StyleSheet.create({
     // ((windowWidth - 10) - 2*((windowWidth/2)-40))/3
 
     button: {
+        flex: 1,
+        height: '100%',
         backgroundColor: buttonColor,
         // width: (windowWidth/2)-40,
         borderRadius: cornerRadius,
+        // marginHorizontal: 10,
 
     },
 

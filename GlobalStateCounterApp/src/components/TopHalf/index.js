@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
+import { useCounterContext } from '../../context/contextProvider';
+
 export default function TopHalf() {
-    const [count, setCount] = useState(0);
+
+    const counterContext = useCounterContext();
+ 
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
-    let fontColor = '#ebebeb';
-    if (count < 0) {
-        fontColor = '#282828';
-    } else {
-        fontColor = '#ebebeb';
-    }
 
     return (
         <>
                 <View style={[styles.countWindow, { width: windowWidth - 20, height: (windowHeight * 0.5) - 15 }]} >
-                    <Text style={[styles.counter, { color: fontColor, }]}>{count}</Text>
+                    <Text style={[styles.counter, counterContext.count<0?{color: '#282828'}:{color: '#ebebeb'}]}>{counterContext.count}</Text>
                 </View>
         </>
     )

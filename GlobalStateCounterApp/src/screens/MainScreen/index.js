@@ -4,6 +4,7 @@ import BottomHalf from '../../components/BottomHalf';
 import { StyleSheet, View, StatusBar, Image } from 'react-native';
 
 export default function MainScreen() {
+
   return (
     <>
       <Image source={require('../../assets/Gradient.png')} style={styles.bg} />
