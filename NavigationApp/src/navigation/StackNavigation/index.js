@@ -9,7 +9,7 @@ export default function StackNav() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }} >
             <Stack.Screen name='splash' component={Splash} />
-            <Stack.Screen name='MainTab' component={DrawerNav} />
+            <Stack.Screen name='MainDrawer' component={DrawerNav} />
         </Stack.Navigator>
     )
 }

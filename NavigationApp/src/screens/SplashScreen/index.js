@@ -1,11 +1,11 @@
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import React from 'react';
 import { Text, View, StyleSheet, Pressable } from 'react-native';
 
 export default function Splash({ navigation }) {
 
     function onPressNext() {
-        navigation.navigate('MainTab');
+        navigation.navigate('MainDrawer');
     }
 
     return (
