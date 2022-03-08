@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     },
     button: {
         margin: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#404040',
         padding: 10,
         borderRadius: 5,
     },
     subText: {
-        color: '#202020',
+        color: '#ffffff',
         fontSize: 18,
     }
 })

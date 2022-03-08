@@ -68,3 +68,16 @@ title="Counter Portrait" height="500" /> \
 title="Counter Portrait 2" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/156096981-c9871289-38fc-44c8-8d5f-278d9643589b.png" alt="Screenshot Portrait 3"
 title="Counter Portrait 3" height="500" /> 
+
+### Assignment 6 - React Navigation
+- Basic Application using Native-Stack, Drawer and Bottom-Tabs Navigators(Nested)
+
+#### Issues
+- Gesture Handler deprecated API warning
+
+#### Screenshots
+<img src="https://user-images.githubusercontent.com/95037274/157311529-38524f03-e83a-42c7-b837-8ea544362a50.png" alt="Screenshot Portrait 1" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/157311539-85fd6711-e256-4729-8b32-593ab010c7a9.png" alt="Screenshot Portrait 2" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/157311542-8779c144-d86d-4eec-a030-8738e3ab1208.png" alt="Screenshot Portrait 3" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/157311545-190a2e22-0430-47b4-8a62-deb0d6f5753e.png" alt="Screenshot Portrait 4" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/157311547-e4af4ec2-cf29-473a-bc3b-e8463e5e1ce5.png" alt="Screenshot Portrait 5" height="500" /> \
