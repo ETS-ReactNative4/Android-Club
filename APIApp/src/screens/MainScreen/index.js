@@ -21,11 +21,11 @@ export default function MainScreen() {
     }
 
     async function onSearch() {
-        // try {
+        try {
             if (search != '') {
                 setIsLoading(true);
-                // const api=`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`;
-                // console.log(api);
+                const api=`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`;
+                console.log(api);
 
                 const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`);
                 setFetchData(response.data);
@@ -34,9 +34,9 @@ export default function MainScreen() {
             } else {
                 nullSearch();
             }
-        // } catch {
-        //     console.log('NoResponse')
-        // }
+        } catch {
+            console.log('NoResponse')
+        }
     }
 
     function Content() {
@@ -49,6 +49,10 @@ export default function MainScreen() {
                         return (
                             < View style={styles.articleBox} >
                                 <View style={styles.headerPanel}>
+                                    
+                                    {item["multimedia"]!=null && (<Image source={{ uri: `https://www.nytimes.com/${item["multimedia"][0]["url"]}` }} style={styles.articleImage} />)}
+
+
                                     {/* <Image source={{ uri: `https://www.nytimes.com/${item["multimedia"][0]["url"]}` }} style={styles.articleImage} /> */}
 
                                     <View style={{ flexShrink: 1 }}>
@@ -64,8 +68,7 @@ export default function MainScreen() {
                         )
                     }}
                     showsVerticalScrollIndicator={false}
-                    ItemSeparatorComponent={()=>(<View style={{height: 10}}></View>)}
-                    
+                    ItemSeparatorComponent={()=>(<View style={{height: 10}}></View>)}                    
                 />
             )
         } else {
