@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 const dim = Dimensions.get('window');
 
 export const styles = StyleSheet.create(
@@ -6,7 +6,7 @@ export const styles = StyleSheet.create(
         container: {
             // backgroundColor: '#000000',
             flex: 1,
-            padding: 10,
+            padding: 15,
         },
         bg: {
             position: 'absolute',
@@ -22,11 +22,12 @@ export const styles = StyleSheet.create(
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
+            marginBottom: 10,
             // backgroundColor: 'white'
         },
         searchBar: {
             flex: 1,
-            backgroundColor: '#404040',
+            backgroundColor: '#303030',
             borderRadius: 30,
             marginRight: 5,
             height: 60,
@@ -34,11 +35,11 @@ export const styles = StyleSheet.create(
         searchText: {
             paddingLeft: 20,
             color: 'white',
-            fontSize: 16,
+            fontSize: 18,
         },
         searchButton: {
             marginLeft: 5,
-            backgroundColor: '#404040',
+            backgroundColor: '#303030',
             color: 'white',
             fontSize: 25,
             height: 60,
@@ -51,7 +52,7 @@ export const styles = StyleSheet.create(
         articleBox: {
             // flex: 1,
             borderRadius: 10,
-            marginTop: 10,
+            // marginTop: 10,
             padding: 10,
             backgroundColor: 'rgba(0,0,0,0.25)'
         },
