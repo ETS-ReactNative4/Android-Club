@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { View, Image, Alert, Text, ActivityIndicator, FlatList, Linking } from 'react-native';
-import { styles } from './styles';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { ActivityIndicator, Alert, Image, Linking, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import CustomInput from '../../components/CustomInput';
+import { styles } from './styles';
 
 export default function MainScreen() {
     const [search, setSearch] = useState('');
