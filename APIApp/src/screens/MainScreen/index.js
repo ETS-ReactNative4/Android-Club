@@ -24,7 +24,7 @@ export default function MainScreen() {
         try {
             if (search != '') {
                 setIsLoading(true);
-                const api=`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`;
+                const api = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`;
                 console.log(api);
 
                 const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=%22The%20New%20York%20Times%22&q=${search}&sort=newest&api-key=${apiKey}`);
@@ -40,25 +40,25 @@ export default function MainScreen() {
     }
 
     function Content() {
-        if (fetchData != null) {
+        if (fetchData != null && isLoading == false) {
             return (
                 <FlatList
-                // contentContainerStyle={{paddingVertical: 10}}
                     data={fetchData["response"]["docs"]}
                     renderItem={({ item }) => {
                         return (
                             < View style={styles.articleBox} >
                                 <View style={styles.headerPanel}>
-                                    
-                                    {item["multimedia"]!=null && (<Image source={{ uri: `https://www.nytimes.com/${item["multimedia"][0]["url"]}` }} style={styles.articleImage} />)}
 
+                                    {item["multimedia"] != {}
+                                        ? <Image source={{ uri: `https://www.nytimes.com/${item["multimedia"][0]["url"]}` }} style={styles.articleImage} />
+                                        : <></>
+                                    }
 
-                                    {/* <Image source={{ uri: `https://www.nytimes.com/${item["multimedia"][0]["url"]}` }} style={styles.articleImage} /> */}
 
                                     <View style={{ flexShrink: 1 }}>
-                                        <Text style={styles.articleTitle}>{item["abstract"]}</Text>
+                                        <Text numberOfLines={2} style={styles.articleTitle}>{item["abstract"]}</Text>
 
-                                        <Text style={styles.articleByline}>{item["lead_paragraph"]}</Text>
+                                        <Text numberOfLines={4} style={styles.articleByline}>{item["lead_paragraph"]}</Text>
                                     </View>
                                 </View>
                                 <Text style={styles.articleLink} onPress={() => {
@@ -68,7 +68,7 @@ export default function MainScreen() {
                         )
                     }}
                     showsVerticalScrollIndicator={false}
-                    ItemSeparatorComponent={()=>(<View style={{height: 10}}></View>)}                    
+                    ItemSeparatorComponent={() => (<View style={{ height: 10 }}></View>)}
                 />
             )
         } else {

@@ -68,7 +68,7 @@ export const styles = StyleSheet.create(
         },
         articleByline: {
             paddingHorizontal: 10,
-            fontSize: 14,
+            fontSize: 12,
             // fontWeight: 'bold',
             color: 'white',
             flexShrink: 1,

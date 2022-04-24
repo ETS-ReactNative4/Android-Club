@@ -80,4 +80,17 @@ title="Counter Portrait 3" height="500" />
 <img src="https://user-images.githubusercontent.com/95037274/157311539-85fd6711-e256-4729-8b32-593ab010c7a9.png" alt="Screenshot Portrait 2" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/157311542-8779c144-d86d-4eec-a030-8738e3ab1208.png" alt="Screenshot Portrait 3" height="500" /> \
 <img src="https://user-images.githubusercontent.com/95037274/157311545-190a2e22-0430-47b4-8a62-deb0d6f5753e.png" alt="Screenshot Portrait 4" height="500" /> \
-<img src="https://user-images.githubusercontent.com/95037274/157311547-e4af4ec2-cf29-473a-bc3b-e8463e5e1ce5.png" alt="Screenshot Portrait 5" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/157311547-e4af4ec2-cf29-473a-bc3b-e8463e5e1ce5.png" alt="Screenshot Portrait 5" height="500" /> 
+
+### Assignment 7 - API Calls, Axios and NYT
+- Basic Application that uses the Axios Library to use the New York Times API
+
+#### Issues
+- If the response object has an empty multimedia object, the app crashes(Can't figure it out for the life of me)
+- Since URI images need to have a width and height defined, images smaller than the specified size(with a fixed aspect ratio) look weird and stretched out to fill empty space. Also can't figure out for the life of me.
+
+#### Screeshots
+<img src="https://user-images.githubusercontent.com/95037274/164976620-1f26d156-c2d4-49a8-b9eb-4b03b8692dc5.png" alt="Screenshot Portrait 1" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/164976624-1932e2f0-9bb2-4ca1-866a-a607b15633d2.png" alt="Screenshot Portrait 1" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/164976626-c83c56bf-7276-4d05-842f-34b505606210.png" alt="Screenshot Portrait 1" height="500" /> \
+<img src="https://user-images.githubusercontent.com/95037274/164976630-9d10da53-cca5-41d7-9bbb-178669c91267.png" alt="Screenshot Portrait 1" height="500" /> 
